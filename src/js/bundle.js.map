@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAA;AACA;AACA,CAAC,E","sources":["webpack:///./src/js/script.js"],"sourcesContent":["document.addEventListener('click', function(){\r\n    \r\n});"],"names":[],"sourceRoot":""}
