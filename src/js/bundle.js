@@ -73,6 +73,53 @@ function openModal(modal) {
 
 /***/ }),
 
+/***/ "./src/js/modules/direction.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/direction.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../server/server */ "./src/js/server/server.js");
+
+
+function direction(){
+    const directionWrapper = document.querySelector('.direction__wrapper');
+
+    (0,_server_server__WEBPACK_IMPORTED_MODULE_0__["default"])('http://localhost:3000/direction.json')
+        .then(data => setDirection(data.direction));
+
+    function setDirection(data){
+        data.map(el => {
+            const {title, services, img} = el;
+
+            const a = document.createElement('a');
+            a.classList.add('direction__list');
+            a.setAttribute('href', '#');
+
+            a.innerHTML = `
+            <h3 class="direction__title text_section">${title}</h3>
+            <p class="direction__services text">${services} услуг</p>
+            <div class="direction__photo">
+                <img src='${img}' alt="ico">
+            </div>
+            `;
+
+            directionWrapper.appendChild(a);
+            
+        })
+    }
+
+    console.log(direction);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (direction);
+
+/***/ }),
+
 /***/ "./src/js/modules/hamburger.js":
 /*!*************************************!*\
   !*** ./src/js/modules/hamburger.js ***!
@@ -223,7 +270,7 @@ function intro(){
         }
     });
 
-    /* setInterval(() => {
+    setInterval(() => {
         if(current < 6){
             current++;
             activeCap(current);
@@ -231,10 +278,36 @@ function intro(){
             current = 1;
             activeCap(current);
         }
-    }, 8000) */
+    }, 8000);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (intro);
+
+/***/ }),
+
+/***/ "./src/js/server/server.js":
+/*!*********************************!*\
+  !*** ./src/js/server/server.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+async function GET(url){
+    let res = await fetch(url);
+    
+    if(!res.ok){
+        throw new Error(`url: ${url}, status: ${res.status}`)
+    }
+
+    console.log(res);
+
+    return await res.json();
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GET);
 
 /***/ })
 
@@ -304,6 +377,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Modal_modalCity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Modal/modalCity */ "./src/js/modules/Modal/modalCity.js");
 /* harmony import */ var _modules_intro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/intro */ "./src/js/modules/intro.js");
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
+/* harmony import */ var _modules_direction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/direction */ "./src/js/modules/direction.js");
+
 
 
 
@@ -312,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function(){
     (0,_modules_Modal_modalCity__WEBPACK_IMPORTED_MODULE_0__["default"])();
     (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
 });
 })();
 

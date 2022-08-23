@@ -1,0 +1,45 @@
+@import '../base/mixin';
+
+.direction{
+    padding-bottom: 150px;
+    &__wrapper{
+        display: grid;
+        grid-template-columns: repeat(4, 320px);
+        gap: 24px;
+        width: 1352px;
+        margin: 0 auto;
+    }
+    &__list{
+        border-radius: 20px;
+        padding: 24px;
+        position: relative;
+        display: flex;
+        gap: 112px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        transition: 0.3s all;
+        justify-content: space-between;
+        box-sizing:content-box;
+        &:hover, &:focus{
+            box-shadow: 2px 2px 10px rgba(195, 185, 181, 1);;
+        }
+    }
+    &__services{
+        text-decoration: none;
+    }
+    &__title{
+        @include font($dark, 400, 30px, 40px);
+        text-decoration: none;
+        font-family: 'SchoolBook';
+    }
+    &__photo{
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        width: 110px;
+        height: auto;
+        img{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "direction": [
+        {
+            "title": "Терапия",
+            "services": 26,
+            "img": "img/Direction/endocr.svg"
+        },
+        {
+            "title": "Хирургия",
+            "services": 26,
+            "img": "img/Direction/knife.svg"
+        },
+        {
+            "title": "Неврология",
+            "services": 26,
+            "img": "img/Direction/dog-in-plate.svg"
+        },
+        {
+            "title": "Ортопедия",
+            "services": 26,
+            "img": "img/Direction/bone.svg"
+        },
+        {
+            "title": "Дерматология",
+            "services": 26,
+            "img": "img/Direction/pet.svg"
+        },
+        {
+            "title": "Офтальмология",
+            "services": 26,
+            "img": "img/Direction/cat.svg"
+        },
+        {
+            "title": "Кардиология",
+            "services": 26,
+            "img": "img/Direction/cat.svg"
+        },
+        {
+            "title": "Стоматология",
+            "services": 26,
+            "img": "img/Direction/canin.svg"
+        },
+        {
+            "title": "Репродуктология",
+            "services": 26,
+            "img": "img/Direction/dogs.svg"
+        },
+        {
+            "title": "Визуальная диагностика",
+            "services": 26,
+            "img": "img/Direction/visual.svg"
+        },
+        {
+            "title": "Лаборатория",
+            "services": 26,
+            "img": "img/Direction/cans.svg"
+        },
+        {
+            "title": "Онкология",
+            "services": 26,
+            "img": "img/Direction/syringe.svg"
+        },
+        {
+            "title": "Эндокринология",
+            "services": 26,
+            "img": "img/Direction/endocr.svg"
+        },
+        {
+            "title": "Экзотические животные",
+            "services": 26,
+            "img": "img/Direction/lizard.svg"
+        },
+        {
+            "title": "Аптека",
+            "services": 26,
+            "img": "img/Direction/pill.svg"
+        },
+        {
+            "title": "Груминг",
+            "services": 26,
+            "img": "img/Direction/grooming.svg"
+        }
+    ]
+}

@@ -109,7 +109,7 @@ function intro(){
         }
     });
 
-    /* setInterval(() => {
+    setInterval(() => {
         if(current < 6){
             current++;
             activeCap(current);
@@ -117,7 +117,7 @@ function intro(){
             current = 1;
             activeCap(current);
         }
-    }, 8000) */
+    }, 8000);
 }
 
 export default intro
