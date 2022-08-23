@@ -48,7 +48,7 @@ gulp.task('fonts', function(){
 });
 
 gulp.task('icons', function(){
-    return gulp.src('src/icons/**/*')
+    return gulp.src('src/icon/**/*')
         .pipe(gulp.dest("dist/icons"));
 });
 

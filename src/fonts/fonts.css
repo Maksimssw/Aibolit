@@ -1,0 +1,52 @@
+/* Futura New */
+
+@font-face {
+    font-family: 'Futura New';
+    src:url('./FuturaNew/FuturaNewMedium-Reg.woff2') format('woff2'),
+        url('./FuturaNew/FuturaNewMedium-Reg.woff') format('woff'),
+        url('./FuturaNew/FuturaNewMedium-Reg.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura New';
+    src:url('./FuturaNew/FuturaNewBold-Reg.woff2') format('woff2'),
+        url('./FuturaNew/FuturaNewBold-Reg.woff') format('woff'),
+        url('./FuturaNew/FuturaNewBold-Obl.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura New';
+    src:url('./FuturaNew/FuturaNewDemi-Reg.woff2') format('woff2'),
+        url('./FuturaNew/FuturaNewDemi-Reg.woff') format('woff'),
+        url('./FuturaNew/FuturaNewDemi-Obl.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Futura New';
+    src:url('./FuturaNew/FuturaNewBook-Reg.woff2') format('woff2'),
+        url('./FuturaNew/FuturaNewBook-Reg.woff') format('woff'),
+        url('./FuturaNew/FuturaNewBook-Obl.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* SchoolBook */
+
+@font-face {
+    font-family: 'SchoolBook';
+    src: url('./SchoolBook/schoolbookboldcyrillic.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SchoolBook';
+    src: url('./SchoolBook/schoolbookcyrillic.ttf') format('truetype');
+    font-display: swap;
+}

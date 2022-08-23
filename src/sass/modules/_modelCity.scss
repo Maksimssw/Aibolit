@@ -1,0 +1,106 @@
+@import '../base/mixin';
+@import './animations';
+
+.modal-city.close{
+    animation: modalClose 300ms linear;
+    animation-fill-mode: forwards;
+}
+
+.modal-city.blocker{
+    visibility: hidden;
+}
+
+.modal{
+    &-city{
+        top: 0;
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        background: rgba(8, 6, 6, 0.5);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        &__wrapper{
+            margin-top: 50vh;
+            width: 400px;
+            background: $white;
+            position: relative;
+            height: 250px;
+            animation: modalClose 300ms linear;
+            padding: 50px 0;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px rgba(155, 82, 50, 0.1);
+        }
+        &__title{
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'SchoolBook';
+        }
+    }
+    &__wrapper-close{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        cursor: pointer;
+        right: 26px;
+        top: 26px;
+    }
+    &_close{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &::before{
+            content: '';
+            background: $brownLight;
+            width: 12px;
+            height: 2px;
+            position: absolute;
+            border-radius: 1px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+        }
+        &::after{
+            content: '';
+            background: $brownLight;
+            width: 12px;
+            position: absolute;
+            left: 50%;
+            height: 2px;
+            border-radius: 1px;
+            transform: translateX(-50%) rotate(45deg);
+        }
+    }
+}
+
+.modal-city.active{
+    visibility: visible;
+    .modal-city__wrapper{
+        animation: modal 300ms linear;
+    }
+}
+
+.city{
+    &__list{
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    &__link{
+        display: block;
+        margin: 0 auto;
+        font-weight: 400;
+        color: $dark;
+        text-align: center;
+    }
+}
+
+@media screen and(max-width: 425px) {
+    .modal-city{
+        &__wrapper{
+            width: 300px;
+        }
+    }
+}

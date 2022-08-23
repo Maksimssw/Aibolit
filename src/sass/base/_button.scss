@@ -1,0 +1,21 @@
+@import './mixin';
+@import './variable';
+@import '../modules/animations';
+
+.btn{
+    outline: none;
+    width: 280px;
+    border: none;
+    height: 67px;
+    background-color: $orange;
+    border-radius: 33px;
+    cursor: pointer;
+    animation: btn 2000ms linear;
+    animation-iteration-count: infinite;
+    box-shadow: 0px 4px 20px #FFC59E;
+    transition: 0.3s all;
+    &:hover, &:focus{
+        background-color: $brown;
+        box-shadow: none;
+    }
+}

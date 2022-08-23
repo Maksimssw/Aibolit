@@ -1,0 +1,55 @@
+@keyframes modal {
+    from{
+        transform: translateY(-5px);
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes modalClose {
+    from{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(5px);
+        visibility: hidden;
+    }
+}
+
+@keyframes btn {
+    from{
+        transform: translateY(5px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(5px);
+    }
+}
+
+@keyframes circle {
+    from{
+        transform: translateX(-10px);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0px);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes cap {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,384 @@
+@import '../base/mixin';
+
+.intro{
+    padding: 130px 0 150px 0;
+    &__wrapper{
+        padding-left: 20px;
+        position: relative;
+        display: flex;
+        &-list{
+            width: 40px;
+            height: 490px;
+            display: flex;
+            position: relative;
+            flex-direction:column;
+            justify-content: space-between;
+        }
+    }
+    &__list{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        position: relative;
+        justify-content: center;
+        color: $brownLight;
+        transition: 0.3s all;
+        cursor: pointer;
+        &:hover, &:focus{
+            color: $dark;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            left: -2px;
+            top: -2px;
+            visibility: hidden;
+            border: 2px solid $dark;
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__phone{
+        right: 10px;
+        bottom: 0;
+        position: absolute;
+        @include font($brown, 700, 24px, 30px);
+    }
+    &__circle{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid $brown;
+        position: absolute;
+        top: 0;
+        left: 0;    
+    }
+}
+
+.intro__list.active{
+    color: $dark;
+    &::before{
+        animation: circle 500ms linear;
+        animation-fill-mode: forwards;
+    }
+}
+
+.cap{
+    display: none;
+    margin-left: 265px;
+    &__title{
+        margin-bottom: 50px;
+    }
+    &__btn{
+        margin-bottom: 200px;
+        color: $white;
+    }
+    &_kitty{
+        width: 645px;
+    }
+    &_human{
+        width: 586px;
+    }
+    &_dog{
+        width: 525px;
+    }
+    &_rabbit{
+        width: 491px;
+    }
+    &_cat{
+        width: 826px;
+    }
+    &_puppies{
+        width: 656px;
+    }
+    &__photo{
+        position: absolute;
+        display: block;
+        right: -30px;
+        bottom: -80px;
+        &-kitty{
+            width: 833px;
+            height: 786px;
+        }
+        &-human{
+            width: 824px;
+            height: 806px;
+        }
+        &-dog{
+            width: 598px;
+            height: 819px;
+        }
+        &-rabbit{
+            width: 830px;
+            height: 726px;
+        }
+        &-cat{
+            width: 675px;
+            height: 740px;
+        }
+        &-puppies{
+            width: 926px;
+            height: 617px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.cap.active{
+    animation: cap 500ms linear;
+    animation-fill-mode: forwards;
+    display: block;
+    .cap__title{
+        animation: circle 500ms linear;
+    }
+    .cap__phone{
+        animation: circle 500ms linear;
+    }
+}
+
+.icons{
+    display: flex;
+    width: 310px;
+    justify-content: space-between;
+    &__list{
+        &:nth-child(1){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #bc06ea;
+                        }
+                    }
+                } 
+            }
+        }
+        &:nth-child(2){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #0059a5;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(3){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #0077ff;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(4){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #ff0000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1830px) {
+    .cap{
+        &__photo{
+            right: 0;
+            &-kitty{
+                width: 625px;
+                height: auto;
+            }
+            &-human{
+                width: 618px;
+                height: auto;
+            }
+            &-dog{
+                width: 449px;
+                height: auto;
+            }
+            &-puppies{
+                width: 749px;
+                height: auto;
+            }
+            &-cat{
+                width: 644px;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1440px) {
+    .cap{
+        margin-left: 180px;
+        &__photo{
+            &-rabbit{
+                width: 624px;
+                height: auto;
+            }
+            &-cat{
+                width: 524px;
+            }
+            &-puppies{
+                width: 582px;
+                transform: scale(-1, 1);
+                bottom: 30px;
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width: 1200px) {
+    .cap{
+        margin-left: 80px;
+        &__photo{
+            &-rabbit{
+                width: 624px;
+                height: auto;
+            }
+            &-cat{
+                width: 524px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1024px) {
+    .intro{
+        overflow: hidden;
+        padding: 80px 0;
+        &__wrapper{
+            display: block;
+            &-list{
+               width: 100%;
+               height: auto;
+               flex-direction: row;
+               justify-content: space-around;
+               margin-bottom: 30px;
+            }
+        }
+    }
+    .cap{
+        overflow: hidden;
+        margin: 0;
+        &__photo{
+            bottom: 50px;
+            &-kitty{
+                width: 490px;
+            }
+            &-human{
+                width: 458px;
+            }
+            &-dog{
+                width: 398px;
+            }
+            &-rabbit{
+                bottom: 128px;
+                right: -100px;
+            }
+            &-cat{
+               width: 454px;
+            }
+            &-puppies{
+                right: -200px;
+            }
+        }
+        &__title{
+            font-size: 72px;
+            margin-bottom: 100px;
+        }
+        
+    }
+}
+
+
+@media screen and(max-width: 768px) {
+    .intro{
+        &__phone{
+            bottom: 75px;
+        }
+    }
+    .cap{
+        &__photo{
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 220px;
+            &-kitty{
+                right: 0;
+                left: auto;
+                width: 398px;;
+                transform: translateX(0);
+                bottom: 250px;
+            }
+            &-human{
+                bottom: 210px;
+                width: 412px;
+            }
+            &-dog{
+                width: 294px;
+                bottom: 210px;
+            }
+            &-cat{
+                bottom: 220px;
+            }
+            &-rabbit{
+                bottom: 171px;
+            }
+        }
+        &__title{
+            width: 100%;
+            font-size: 58px;
+            margin-bottom: 400px;
+        }
+        &__btn{
+            margin-bottom: 100px;
+        }
+    }
+}
+
+
+@media screen and(max-width: 425px) {
+    .cap{
+        &__photo{
+            display: none;
+        }
+        &__title{
+            margin-bottom: 40px;
+            padding: 0 10px;
+            text-align: center;
+        }
+        &__title{
+            font-size: 45px;
+        }
+        &__btn{
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 100px;
+        }
+    }
+    .intro{
+        padding: 60px 0;
+        &__wrapper{
+            padding-left: 0;
+        }
+    }
+    .icons{
+        width: 100%;
+        justify-content: space-around;
+    }
+}

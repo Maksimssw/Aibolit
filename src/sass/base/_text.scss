@@ -1,0 +1,19 @@
+@import './mixin';
+@import './variable';
+
+.title{
+    @include font($dark, 400, 40px, 40px);
+    &_section{
+        @include font($dark, 400, 30px, 40px);
+    }
+    &_big{
+        @include font($dark, 400, 80px, 110px);
+    }
+}
+
+.text{
+    @include font($dark, 400, 20px, 30px);
+    &_link{
+        @include font($orange, 700, 20px, 20px);
+    }
+}
