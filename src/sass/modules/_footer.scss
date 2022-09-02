@@ -1,11 +1,140 @@
 @import '../base/mixin';
+@import './platform';
+@import './icons';
 
 .footer{
     padding: 80px 0 60px;
     background: #59443F;   
+    &__wrapper{
+        display: flex;
+        padding-left: 113px;
+    }
+    &__nav{
+        display: grid;
+        grid-template-columns: repeat(3, 192px);
+        gap: 100px;
+        width: 776px;
+    }
+    &__link{
+        @include font($white, 400, 20px, 30px);
+        transition: 0.3s all;
+        &:hover, &:focus{
+            opacity: .7;
+        }
+    }
+    &__links{
+        margin-left: 258px;
+    }
+    &_platform{
+        margin-left: 822px;
+    }
+    &__mail{
+        display: block;
+        @include font($white, 400, 20px, 30px);
+    }
+    &__from{
+        margin-top: 70px;
+        @include font($white, 400, 20px, 30px);
+    }
 }
 
 .heading{
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
+    &__logo{
+        width: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        img{
+            width: 100%;
+            vertical-align: bottom;
+        }
+    }
+    &__text{
+        margin-left: 22px;
+    }
+    &__title{
+        font-family: 'SchoolBook';
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 45px;
+        margin-bottom: 5px;
+        color: $white;
+    }
+    &__subtitle{
+        color: $white;
+        font-weight: 400;
+    }
+}
+
+@media screen and(max-width: 1500px) {
+    .footer{
+        padding-right: 15px;
+        &_platform{
+            margin-left: auto;
+        }
+        &__links{
+            margin-left: auto;
+        }
+    }
+}
+
+@media screen and(max-width: 1200px) {
+    .footer{
+        &__nav{
+            width: 100%;
+            gap: 30px;
+        }
+    }
+}
+
+@media screen and(max-width: 1072px) {
+    .footer{
+        &__nav{
+            grid-template-columns: repeat(2, 192px);
+            grid-template-rows: 50px 175px;
+        }
+        &__menu{
+            &:nth-child(1){
+                grid-column: 1/3;
+            }
+            &:nth-child(2){
+                grid-column: 1;
+                grid-row: 2;
+            }
+            &:nth-child(3){
+                grid-column: 2;
+                grid-row: 2;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 842px) {
+    .footer{
+        &__wrapper{
+            display: block;
+        }
+        &__links{
+            margin: 0 auto;
+        }
+        &__nav{
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        &__mail{
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        &__from{
+            text-align: center;
+        }
+    }
+    .icons{
+        &_footer{
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+    }
 }

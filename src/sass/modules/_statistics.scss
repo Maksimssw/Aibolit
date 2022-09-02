@@ -28,3 +28,32 @@
         animation-iteration-count: infinite;
     }
 }
+
+@media screen and(max-width: 884px) {
+    .statistics{
+        padding: 160px 0 200px;
+    }
+}
+
+@media screen and(max-width: 707px) {
+    .statistics{
+        &__subtitle{
+            font-size: 42px;
+            width: 100%;
+            padding: 0 15px;
+            line-height: 52px;
+        }
+        &__title{
+            font-size: 110px;
+        }
+        &__bird{
+            width: 228px;
+            height: 223px;
+            left: 50%;
+            transform: translateX(-50%);
+            img{
+                width: 100%;
+            }
+        }
+    }
+}

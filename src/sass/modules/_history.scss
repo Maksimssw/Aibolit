@@ -52,6 +52,7 @@
         display: flex;
         align-items: center;
         gap: 15px;
+        justify-content: center;
     }
     &__btn{
         width: 40px;
@@ -93,6 +94,42 @@
             height: 178px;
             border-radius: 50%;
             overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1288px) {
+    .specialists{
+        &__slider{
+            width: 572px;
+        }
+    }
+    .history{
+        &__wrapper{
+            width: 100%;
+        }
+    }
+    .specialists{
+        width: 100%;
+    }
+}
+
+@media screen and(max-width: 884px) {
+    .history{
+        padding: 60px 0px 80px;
+    }
+}
+
+@media screen and(max-width: 686px) {
+    .specialists{
+        &__slider{
+            width: 190px;
+            img{
+                vertical-align: bottom;
+            }
         }
     }
 }

@@ -1,0 +1,61 @@
+@import '../base/mixin';
+
+.icons{
+    display: flex;
+    width: 310px;
+    justify-content: space-between;
+    &__list{
+        &:nth-child(1){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #bc06ea;
+                        }
+                    }
+                } 
+            }
+        }
+        &:nth-child(2){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #0059a5;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(3){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #0077ff;
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(4){
+            a{
+                &:hover, &:focus{
+                    svg{
+                        path{
+                            fill: #ff0000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &_footer{
+        margin-bottom: 30px;
+        svg{
+            path{
+                fill: $white;
+            }
+        }
+    }
+}

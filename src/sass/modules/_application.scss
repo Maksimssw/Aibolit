@@ -1,7 +1,7 @@
 @import '../base/mixin';
 
 .application{
-    padding: 237px 0 178px;
+    padding: 237px 10px 178px 15px;
     background: $orange;
     &__wrapper{
         display: flex;
@@ -10,6 +10,7 @@
     }
     &__text{
         width: 826px;
+        z-index: 2;
         margin-right: 214px;
     }
     &__soon{
@@ -20,18 +21,6 @@
         margin-bottom: 42px;
         color: $white;
         font-family: 'SchoolBook';
-    }
-    &__platforms{
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        a{
-            width: 167px;
-            img{
-                width: 100%;
-                
-            }
-        }
     }
     &__photo{
         width: 329px;
@@ -52,6 +41,45 @@
         bottom: -26px;
         img{
             width: 100%;
+        }
+    }
+}
+
+@media screen and(max-width: 1400px) {
+    .application{
+        &__text{
+            width: 60%;
+            margin-right: 0;
+        }
+        &__photo{
+            margin-left: auto;
+        }
+    }
+}
+
+@media screen and(max-width: 884px) {
+    .application{
+        padding: 120px 10px 80px;
+        &__title{
+            font-size: 52px;   
+        }
+        &__dog{
+            width: 360px;
+        }
+    }
+}
+
+@media screen and(max-width: 700px) {
+    .application{
+        &__wrapper{
+            display: block;
+        }
+        &__text{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        &__dog{
+            left: 0;
         }
     }
 }
