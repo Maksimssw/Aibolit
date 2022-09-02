@@ -5,8 +5,6 @@ async function GET(url){
         throw new Error(`url: ${url}, status: ${res.status}`)
     }
 
-    console.log(res);
-
     return await res.json();
 }
 

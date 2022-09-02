@@ -2,17 +2,17 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/Modal/modalCity.js":
-/*!*******************************************!*\
-  !*** ./src/js/modules/Modal/modalCity.js ***!
-  \*******************************************/
+/***/ "./src/js/modules/Modals/modalCity.js":
+/*!********************************************!*\
+  !*** ./src/js/modules/Modals/modalCity.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _toggleModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleModal */ "./src/js/modules/Modal/toggleModal.js");
+/* harmony import */ var _toggleModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleModal */ "./src/js/modules/Modals/toggleModal.js");
 
 
 
@@ -46,10 +46,10 @@ function modalCity(){
 
 /***/ }),
 
-/***/ "./src/js/modules/Modal/toggleModal.js":
-/*!*********************************************!*\
-  !*** ./src/js/modules/Modal/toggleModal.js ***!
-  \*********************************************/
+/***/ "./src/js/modules/Modals/toggleModal.js":
+/*!**********************************************!*\
+  !*** ./src/js/modules/Modals/toggleModal.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -70,6 +70,114 @@ function openModal(modal) {
 
 
 
+
+/***/ }),
+
+/***/ "./src/js/modules/Sliders/sliderSpecialists.js":
+/*!*****************************************************!*\
+  !*** ./src/js/modules/Sliders/sliderSpecialists.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function sliderSpecialists(item){
+    const slider = document.querySelector('.specialists__slider'),
+    left = document.querySelector('.specialists__btn-left'),
+    right = document.querySelector('.specialists__btn-right'),
+    sliderWrapper = document.querySelector('.specialists__slider-wrapper'),
+    container = document.querySelector('.container'),
+    sliderItem = slider.querySelectorAll('.specialists__slider-item');
+
+    let scrollX = 0;
+    let widthItem;
+
+    let numberMultiplication;
+    let margins;
+
+    if(container.offsetWidth > 1024){
+        numberMultiplication = 3;
+        sliderItem.forEach(el => {
+            widthItem = slider.offsetWidth / 6
+            el.style.width = Math.trunc(widthItem) + 'px';
+        });
+        margins = 15 * sliderItem.length - 1;
+        sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
+    }
+
+    right.addEventListener('click', function(){
+        if(scrollX * numberMultiplication < sliderWrapper.offsetWidth){
+            scrollX += Math.trunc(widthItem);
+        }else{
+            scrollX = 0;
+        }
+
+        console.log(scrollX);
+
+        sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
+    });
+
+    left.addEventListener('click', function(){
+        if(scrollX === 0){
+            scrollX = sliderWrapper.offsetWidth / numberMultiplication;
+        }else{
+            scrollX -= Math.trunc(widthItem);
+        }
+        
+        console.log(scrollX);
+
+        sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderSpecialists);
+
+/***/ }),
+
+/***/ "./src/js/modules/choice.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/choice.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _server_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../server/server */ "./src/js/server/server.js");
+
+
+function choice(){
+    const choiceWrapper = document.querySelector('.choice__wrapper');
+
+    (0,_server_server__WEBPACK_IMPORTED_MODULE_0__["default"])('./choice.json')
+        .then(data => setChoice(data.choice));
+
+    function setChoice(data){
+        data.map(el => {
+            const {img, title, subtitle} = el;
+
+            const div = document.createElement('div');
+            div.classList.add('.choice__item');
+
+            div.innerHTML = `
+            <h2 class="choice__item-title title_section">${title}</h2>
+            <div class="choice__item-block">
+                <div class="choice__item-photo">
+                    <img src='${img}' alt="icon">
+                </div>
+                <p class="choice__item-subtitle text">${subtitle}</p>
+            </div>
+            `;
+
+            choiceWrapper.appendChild(div);
+        })
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (choice);
 
 /***/ }),
 
@@ -112,8 +220,6 @@ function direction(){
             
         })
     }
-
-    console.log(direction);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (direction);
@@ -302,8 +408,6 @@ async function GET(url){
         throw new Error(`url: ${url}, status: ${res.status}`)
     }
 
-    console.log(res);
-
     return await res.json();
 }
 
@@ -374,21 +478,28 @@ var __webpack_exports__ = {};
   !*** ./src/js/script.js ***!
   \**************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_Modal_modalCity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Modal/modalCity */ "./src/js/modules/Modal/modalCity.js");
+/* harmony import */ var _modules_Modals_modalCity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/Modals/modalCity */ "./src/js/modules/Modals/modalCity.js");
 /* harmony import */ var _modules_intro__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/intro */ "./src/js/modules/intro.js");
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
 /* harmony import */ var _modules_direction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/direction */ "./src/js/modules/direction.js");
+/* harmony import */ var _modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/Sliders/sliderSpecialists */ "./src/js/modules/Sliders/sliderSpecialists.js");
+/* harmony import */ var _modules_choice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/choice */ "./src/js/modules/choice.js");
+
+
 
 
 
 
 
 document.addEventListener('DOMContentLoaded', function(){
-    (0,_modules_Modal_modalCity__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    (0,_modules_Modals_modalCity__WEBPACK_IMPORTED_MODULE_0__["default"])();
     (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
     (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    (0,_modules_choice__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
+
 })();
 
 /******/ })()

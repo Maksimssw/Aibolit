@@ -26,8 +26,6 @@ function direction(){
             
         })
     }
-
-    console.log(direction);
 }
 
 export default direction;

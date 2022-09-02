@@ -53,3 +53,15 @@
         opacity: 1;
     }
 }
+
+@keyframes arrow {
+    from{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(15px);
+    }
+    to{
+        transform: translateX(0);
+    }
+}

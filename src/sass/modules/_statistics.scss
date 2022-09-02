@@ -1,0 +1,30 @@
+@import './animations';
+
+.statistics{
+    padding: 316px 0 473px;
+    &__title{
+        margin-bottom: 20px;
+        font-size: 144px;
+        font-weight: 700;
+        line-height: 110px;
+        color: $brown;
+        text-align: center;
+    }
+    &__subtitle{
+        font-size: 80px;
+        color: $dark;
+        line-height: 110px;
+        text-align: center;
+        font-weight: 400;
+        width: 716px;
+        position: relative;
+        margin: 0 auto;
+    }
+    &__bird{
+        position: absolute;
+        bottom: -200px;
+        right: 0;
+        animation: btn 1500ms linear;
+        animation-iteration-count: infinite;
+    }
+}
