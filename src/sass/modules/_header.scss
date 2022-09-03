@@ -3,6 +3,10 @@
 
 .header{
     padding-top: 65px;
+    &_record{
+        box-shadow: 0px 4px 10px rgba(8, 6, 6, 0.1);
+        backdrop-filter: blur(8px);
+    }
     &__logo{
         width: 100px;
         height: 100%;

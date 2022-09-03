@@ -1,0 +1,43 @@
+@import '../base/mixin';
+@import '../modules/back';
+
+.record{
+    padding: 75px 230px 535px;
+    &__wrapper{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__title{
+        width: 360px;
+        font-family: 'SchoolBook';
+        margin-right: 190px;
+    }
+    &__list{
+        width: 100%;
+        padding: 32px;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        margin-bottom: 24px;
+        display: flex;
+        width: 900px;
+        cursor: pointer;
+        justify-content: space-between;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        transition: 0.3s all;
+        &:hover, &:focus{
+            transform: translateX(-10px);
+        }
+    }
+    &__text{
+        color: $dark;
+        font-weight: 400;
+    }
+    &__price{
+        color: $dark;
+        font-weight: 400;
+    }
+}   

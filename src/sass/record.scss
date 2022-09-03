@@ -1,7 +1,5 @@
-@import './base/button';
-@import './base/mixin';
-@import './base/text';
 @import './base/variable';
+@import './base/text';
 
 body{
     font-family: 'Futura New', sans-serif;
@@ -29,12 +27,7 @@ ul li{
 }
 
 @import './modules/header';
-@import './modules/modalCity';
-@import './modules/intro';
-@import './modules/direction';
-@import './modules/history';
-@import './modules/statistics';
-@import './modules/choice';
-@import './modules/application';
-@import './modules/contacts';
 @import './modules/footer';
+@import './modules/modalCity';
+@import './modules/record';
+@import './modules/modal';

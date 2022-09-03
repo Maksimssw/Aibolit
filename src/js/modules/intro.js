@@ -49,7 +49,7 @@ function intro(){
 
         div.innerHTML = `
         <h1 class="cap__title title_big ${classTitle}">${title}</h1>
-        <button class="cap__btn btn text_link">ЗАПИСАТЬСЯ</button>
+        <a href="record.html" class="cap__btn btn text_link">ЗАПИСАТЬСЯ</a>
         <ul class="icons">
             <li class="icons__list">
                 <a class="icons__link" href="#">

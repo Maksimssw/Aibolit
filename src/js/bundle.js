@@ -2,6 +2,39 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/Modals/modal.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/Modals/modal.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _toggleModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toggleModal */ "./src/js/modules/Modals/toggleModal.js");
+
+
+function modal({modal, btnOpen, btnClose}){
+    const modalWrapper = document.querySelector(modal),
+    modalBtnOpen = document.querySelectorAll(btnOpen),
+    modalBtnClose = document.querySelector(btnClose);
+
+    modalBtnOpen.forEach(el => {
+        el.addEventListener("click", function(){
+            (0,_toggleModal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modalWrapper);
+        });
+    })
+
+    modalBtnClose.addEventListener('click', function(){
+        ;(0,_toggleModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modalWrapper);
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modal);
+
+/***/ }),
+
 /***/ "./src/js/modules/Modals/modalCity.js":
 /*!********************************************!*\
   !*** ./src/js/modules/Modals/modalCity.js ***!
@@ -244,6 +277,57 @@ function direction(){
 
 /***/ }),
 
+/***/ "./src/js/modules/entrance.js":
+/*!************************************!*\
+  !*** ./src/js/modules/entrance.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modals/toggleModal */ "./src/js/modules/Modals/toggleModal.js");
+
+
+function entrance (){
+    const tel = document.querySelector('.modal__tel'),
+    form = document.querySelector('.form-entrance'),
+    messageError = document.querySelector('.modal__error'),
+    btn = document.querySelector('.modal__btn'),
+    modal = document.querySelector('.modal');
+
+    tel.addEventListener('input', function(e){
+        let num = +e.target.value
+        
+        if(Number.isInteger(num)){
+            messageError.classList.remove('active');
+            btn.classList.add('active');
+            btn.setAttribute('href', 'order.html');
+        } else{
+            messageError.classList.add('active');
+            btn.classList.remove('active');
+            btn.removeAttribute('href');
+        }
+    });
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+    });
+
+    btn.addEventListener('click', function(){
+        if(btn.classList.contains('active')){
+            (0,_Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modal);
+            tel.value = '';
+        }
+    });
+
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entrance);
+
+/***/ }),
+
 /***/ "./src/js/modules/hamburger.js":
 /*!*************************************!*\
   !*** ./src/js/modules/hamburger.js ***!
@@ -334,7 +418,7 @@ function intro(){
 
         div.innerHTML = `
         <h1 class="cap__title title_big ${classTitle}">${title}</h1>
-        <button class="cap__btn btn text_link">ЗАПИСАТЬСЯ</button>
+        <a href="record.html" class="cap__btn btn text_link">ЗАПИСАТЬСЯ</a>
         <ul class="icons">
             <li class="icons__list">
                 <a class="icons__link" href="#">
@@ -502,6 +586,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_direction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/direction */ "./src/js/modules/direction.js");
 /* harmony import */ var _modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/Sliders/sliderSpecialists */ "./src/js/modules/Sliders/sliderSpecialists.js");
 /* harmony import */ var _modules_choice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/choice */ "./src/js/modules/choice.js");
+/* harmony import */ var _modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/Modals/modal */ "./src/js/modules/Modals/modal.js");
+/* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
+
+
 
 
 
@@ -511,11 +599,29 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function(){
     (0,_modules_Modals_modalCity__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    try{
+        (0,_modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__["default"])({
+            modal: '.modal',
+            btnOpen: '.record__list',
+            btnClose: '.modal_close-entrance'
+        })
+    } catch{}
+    try{
+        (0,_modules_entrance__WEBPACK_IMPORTED_MODULE_7__["default"])();
+    } catch{};
+    try{
+        (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    } catch{}
+    try{
+        (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    } catch{}
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
-    (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
-    (0,_modules_choice__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    try{
+        (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    } catch{}
+    try{
+        (0,_modules_choice__WEBPACK_IMPORTED_MODULE_5__["default"])();
+    } catch{}
 });
 
 })();

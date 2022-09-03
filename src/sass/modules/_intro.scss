@@ -76,6 +76,9 @@
     &__btn{
         margin-bottom: 200px;
         color: $white;
+        display:flex;
+        justify-content: center;
+        align-items: center;
     }
     &_kitty{
         width: 645px;

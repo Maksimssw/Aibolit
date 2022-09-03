@@ -1,0 +1,84 @@
+@import '../base/mixin';
+@import '../modules/animations';
+
+.modal.blocker{
+    visibility: hidden;
+}
+
+.modal.close{
+    animation: modalClose 300ms linear;
+    animation-fill-mode: forwards;
+}
+
+.modal{
+    top: 0;
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    background: rgba(8, 6, 6, 0.5);
+    display: flex;
+    padding-top: 50vh;
+    width: 100%;
+    justify-content: center;
+    &__wrapper{
+        width: 400px;
+        height: fit-content;
+        position: relative;
+        background: #FFFFFF;
+        box-shadow: 2px 2px 20px rgba(155, 82, 50, 0.1);
+        border-radius: 20px;
+        padding: 50px 25px;
+    }
+    &__title{
+        text-align: center;
+        width: 183px;
+        margin: 0 auto;
+        margin-bottom: 32px;
+    }
+    &__tel{
+        outline: none;
+        border: none;
+        border: 1px solid #EDE9E8;
+        border-radius: 20px;
+        width: 100%;
+        padding-left: 16px;
+        margin: 0 auto;
+        height: 57px;
+        margin-bottom: 32px;
+    }
+    &__btn{
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 280px;
+        height: 67px;
+        background: #EDE9E8;
+        border-radius: 33px;
+        margin: 0 auto;
+        color: $white;
+    }
+    &__error{
+        color: rgb(109, 3, 3);
+        text-align: center;
+        margin-bottom: 30px;
+        display: none;
+    }
+}
+
+.modal__btn.active{
+    cursor: pointer;
+    background: $orange;
+}
+
+.modal__error.active{
+    display: block;
+}
+
+.modal.active{
+    visibility: visible;
+    .modal__wrapper{
+        animation: modal 300ms linear;
+    }
+}

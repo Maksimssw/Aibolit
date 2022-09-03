@@ -1,0 +1,20 @@
+.back{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 60px;
+    &:hover, &:focus{
+        .back__arrow{
+            transform: translateX(-10px);
+        }
+    }
+    &__arrow{
+        width: 24px;
+        display: flex;
+        align-items: center;
+        transition: 0.3s all;
+        svg{
+            width: 100%;
+        }
+    }
+}
