@@ -46,6 +46,7 @@
         width: 90px;
         border-radius: 50%;
         overflow: hidden;
+        display: block;
         img{
             width: 100%;
             vertical-align: bottom;
@@ -135,6 +136,52 @@
         &_footer{
             margin: 0 auto;
             margin-bottom: 20px;
+        }
+    }
+}
+
+@media screen and(max-width: 731px) {
+    .heading{
+        display: grid;
+        grid-template-columns: 90px 217px;
+        grid-template-rows: 1fr 1fr;
+        justify-content: center;
+    }
+    .footer{
+        padding-right: 0;
+        &_platform{
+            grid-row: 2;
+        }
+        &__wrapper{
+            padding-left: 0;
+        }
+    }
+}
+
+@media screen and(max-width: 438px) {
+    .heading{
+        display: block;
+        &__logo{
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+        &__text{
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    }
+    .footer{
+        &_platform{
+            justify-content: center;
+        }
+        &__nav{
+            display: block;
+        }
+        &__menu{
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 10px 0;
         }
     }
 }

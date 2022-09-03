@@ -11,7 +11,7 @@ function choice(){
             const {img, title, subtitle} = el;
 
             const div = document.createElement('div');
-            div.classList.add('.choice__item');
+            div.classList.add('choice__item');
 
             div.innerHTML = `
             <h2 class="choice__item-title title_section">${title}</h2>

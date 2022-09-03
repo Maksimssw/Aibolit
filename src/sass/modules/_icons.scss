@@ -59,3 +59,10 @@
         }
     }
 }
+
+@media screen and(max-width: 425px) {
+    .icons{
+        margin: 0 auto;
+        justify-content: space-around;
+    }
+}

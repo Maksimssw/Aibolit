@@ -66,8 +66,44 @@
 @media screen and(max-width: 704px) {
     .choice{
         &__wrapper{
-            padding-left: 15px;
+            padding: 0 15px 0;
             grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media screen and(max-width: 484px) {
+    .title{
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+    .choice{
+        &__item{
+            &-title{
+                font-size: 24px;
+                text-align: center;
+            }
+        }
+        &__title{
+            padding: 0 10px 0;
+        }
+    }
+}
+@media screen and(max-width: 395px) {
+    .choice{
+        &__item{
+            &-block{
+                display: block;
+            }
+            &-photo{
+                padding-left: 0;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            &-subtitle{
+                text-align: center;
+            }
         }
     }
 }

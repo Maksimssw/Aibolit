@@ -57,3 +57,18 @@
         }
     }
 }
+
+
+@media screen and(max-width: 527px) {
+    .statistics{
+        padding: 80px 0 100px;
+        &__title{
+            font-size: 57px;
+        }
+        &__bird{
+            width: 150px;
+            height: auto;
+            bottom: -100px;
+        }
+    }
+}

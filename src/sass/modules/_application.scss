@@ -83,3 +83,23 @@
         }
     }
 }
+
+@media screen and(max-width: 510px) {
+    .application{
+        &__dog{
+            width: 260px;
+        }
+    }
+}
+
+@media screen and(max-width: 464px) {
+    .application{
+        &__dog{
+            width: 180px;
+        }
+        &__photo{
+            width: 100%;
+        }
+    }
+}
+

@@ -73,3 +73,18 @@
         }
     }
 }
+
+@media screen and(max-width: 425px) {
+    .direction{
+        &__wrapper{
+            grid-template-columns: repeat(8, 260px);
+            -ms-grid-columns: (260px)[8];
+        }
+        &__photo{
+            z-index: -1;
+        }
+        &__list{
+            gap: 60px;
+        }
+    }
+}
