@@ -106,6 +106,79 @@ function openModal(modal) {
 
 /***/ }),
 
+/***/ "./src/js/modules/Sliders/sliderServices.js":
+/*!**************************************************!*\
+  !*** ./src/js/modules/Sliders/sliderServices.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function sliderServices(){
+    const slider = document.querySelector('.services__info .slider'),
+    btnLeft = slider.querySelector('.slider__btn-left'),
+    btnRight = slider.querySelector('.slider__btn-right'),
+    sliderWrapper = slider.querySelector('.slider__wrapper'),
+    sliderItem = slider.querySelectorAll('.slider__item');
+
+    let scrollX = 0;
+
+    console.log(btnLeft);
+
+    if(slider.offsetWidth == 1032){
+        sliderItem.forEach(el => {
+            el.style.width = (slider.offsetWidth - 40) / 3 + 'px';
+        });
+        sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
+    }
+
+    function toggleBtn(){
+        console.log(scrollX);
+        if(scrollX >= slider.offsetWidth){
+            btnRight.classList.add('hidden');
+            btnLeft.classList.remove('hidden');
+        } else{
+            btnLeft.classList.add('hidden');
+            btnLeft.classList.remove('hidden');
+        }
+        
+        if(scrollX === 0){
+            btnLeft.classList.add('hidden');
+            btnRight.classList.remove('hidden');
+        }
+    }
+
+    btnRight.addEventListener('click', function(){
+        if(scrollX >= slider.offsetWidth){
+            scrollX = 0;
+            toggleBtn();
+        } else{
+            scrollX += slider.offsetWidth;
+            toggleBtn();
+        }
+        
+        sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
+    });
+
+    btnLeft.addEventListener('click', function(){
+        if(scrollX === 0){
+            scrollX = slider.offsetWidth
+            toggleBtn();
+        } else{
+            scrollX -= slider.offsetWidth;
+            toggleBtn();
+        }
+        
+        sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
+    });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderServices);
+
+/***/ }),
+
 /***/ "./src/js/modules/Sliders/sliderSpecialists.js":
 /*!*****************************************************!*\
   !*** ./src/js/modules/Sliders/sliderSpecialists.js ***!
@@ -588,6 +661,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_choice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/choice */ "./src/js/modules/choice.js");
 /* harmony import */ var _modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/Modals/modal */ "./src/js/modules/Modals/modal.js");
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
+/* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
+
 
 
 
@@ -616,6 +691,9 @@ document.addEventListener('DOMContentLoaded', function(){
         (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
     } catch{}
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    try{
+        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])();
+    } catch{}
     try{
         (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
     } catch{}

@@ -1,0 +1,36 @@
+@import './mixin';
+
+.arrow{
+    width: 24px;
+    height: 20px;
+    position: relative;
+    &::after, &::before{
+        content: '';
+        width: 7px;
+        height: 2px;
+        left: 50%;
+        border-radius: 2px;
+        position: absolute;
+        transform: rotate(45deg) translateX(-50%);
+    }
+    &::after{
+        top: 9px;
+    }
+    &::before{
+        transform: rotate(-45deg) translateX(-50%);
+        bottom: 10px;
+    }
+    &_white{
+        &::after, &::before{
+            background: $white;
+        }
+    }
+    &_left{
+        transform: rotate(180deg);
+    }
+    &_orange{
+        &::after, &::before{
+            background: $orange;
+        }
+    }
+}

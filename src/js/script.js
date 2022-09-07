@@ -6,6 +6,7 @@ import sliderSpecialists from './modules/Sliders/sliderSpecialists';
 import choice from './modules/choice';
 import modal from './modules/Modals/modal';
 import entrance from './modules/entrance';
+import sliderServices from './modules/Sliders/sliderServices';
 
 document.addEventListener('DOMContentLoaded', function(){
     modalCity();
@@ -26,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function(){
         sliderSpecialists();
     } catch{}
     hamburger();
+    try{
+        sliderServices();
+    } catch{}
     try{
         direction();
     } catch{}
