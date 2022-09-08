@@ -1,6 +1,7 @@
 function intro(){
     const wrapper = document.querySelector(".intro__wrapper");
 
+    // Данные блоков
     const caps = [
         {
             title: 'Айболит круглосуточная ветклиника',
@@ -40,6 +41,8 @@ function intro(){
         }
     ]
 
+
+    // Создание блоков
     caps.map(item => {
         const {title, img, classPhoto, classTitle} = item;
 
@@ -93,6 +96,7 @@ function intro(){
 
     let current = 1;
 
+    // Добовление класса active, для отоброжения на странице
     function activeCap(i){
         capList.forEach(el => el.classList.remove('active'));
         btnNum.forEach(el => el.classList.remove('active'));
@@ -100,15 +104,32 @@ function intro(){
         btnNum[i - 1].classList.add("active");
     }
 
+    // Начальное значиние отоброжения
     activeCap(1);
 
-    wrapper.addEventListener('click', function(e){
+    // Обработка цифры при нажатий 
+    function assetProcessing(e){
         if(e.target.classList.contains('intro__list')){
             activeCap(+e.target.textContent);
             current = +e.target.textContent;
         }
+    }
+
+    // Обработка клика
+    wrapper.addEventListener('click', function(e){
+        assetProcessing(e);
     });
 
+    // Обработка кнопки 'Enter'
+    btnNum.forEach(el => {
+        el.addEventListener('keydown', function(e){
+            if(e.code === 'Enter'){
+                assetProcessing(e);
+            }
+        });
+    })
+
+    // Каждые 8 секунд включается новый блок
     setInterval(() => {
         if(current < 6){
             current++;
