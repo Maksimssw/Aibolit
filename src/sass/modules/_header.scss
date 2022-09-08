@@ -47,7 +47,7 @@
         }
     }
     &__link{
-        color: #C3B9B5;
+        color: $brown;
         transition: 0.3s all;
         &:hover, &:focus{
             color: $brown;
@@ -101,7 +101,7 @@
     top: 0;
     left: 0;
     z-index: 2;
-    background: #816e6e;
+    background: #df9f74;
     padding: 30px;
     .menu{
         flex-direction: column;
@@ -160,6 +160,9 @@
         &__logo{
             width: 50px;
         }
+    }
+    .menu-wrapper.active{
+        padding: 10px;
     }
     .menu{
         &__link{

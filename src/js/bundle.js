@@ -106,6 +106,48 @@ function openModal(modal) {
 
 /***/ }),
 
+/***/ "./src/js/modules/Sliders/sliderPrice.js":
+/*!***********************************************!*\
+  !*** ./src/js/modules/Sliders/sliderPrice.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function sliderPrice(){
+    const slider = document.querySelector('.price .slider'),
+    priceCost = slider.querySelectorAll('.price__cost'),
+    priceNum = document.querySelectorAll('.price__list'),
+    sliderWrapper = slider.querySelector('.slider__wrapper');
+
+    priceCost.forEach(el => el.style.width = slider.offsetWidth + 'px');
+
+    function toggleNumberSlider(i){
+        priceNum.forEach(el => el.classList.remove('active'));
+        priceNum[i - 1].classList.add('active');
+        priceNum[i + 3].classList.add('active');
+    }
+
+    toggleNumberSlider(1);
+
+    sliderWrapper.style.width = priceCost.length * 100 + '%';
+
+    priceNum.forEach(el => {
+        el.addEventListener('click', function(e){
+            const num = +e.target.innerText
+            toggleNumberSlider(num);
+            
+            sliderWrapper.style.transform = `translateX(-${slider.offsetWidth * (num - 1)}px)`;
+        });
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderPrice);
+
+/***/ }),
+
 /***/ "./src/js/modules/Sliders/sliderServices.js":
 /*!**************************************************!*\
   !*** ./src/js/modules/Sliders/sliderServices.js ***!
@@ -116,26 +158,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function sliderServices(){
-    const slider = document.querySelector('.services__info .slider'),
-    btnLeft = slider.querySelector('.slider__btn-left'),
-    btnRight = slider.querySelector('.slider__btn-right'),
-    sliderWrapper = slider.querySelector('.slider__wrapper'),
-    sliderItem = slider.querySelectorAll('.slider__item');
+function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, sliderItemSer}){
+    const slider = document.querySelector(sliderSer),
+    btnLeft = document.querySelector(btnLeftSer),
+    btnRight = document.querySelector(btnRightSer),
+    sliderWrapper = slider.querySelector(sliderWrapperSer),
+    sliderItem = slider.querySelectorAll(sliderItemSer);
 
     let scrollX = 0;
 
-    console.log(btnLeft);
-
-    if(slider.offsetWidth == 1032){
+    function counting(px, i){
         sliderItem.forEach(el => {
-            el.style.width = (slider.offsetWidth - 40) / 3 + 'px';
+            el.style.width = (slider.offsetWidth - px) / i + 'px';
         });
+        console.log(sliderItem[0]);
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
 
+    if(slider.offsetWidth == 1032){
+        counting(40, 3)
+    } else if(slider.offsetWidth == 1300){
+        counting(75, 4);
+    }
+
     function toggleBtn(){
-        console.log(scrollX);
         if(scrollX >= slider.offsetWidth){
             btnRight.classList.add('hidden');
             btnLeft.classList.remove('hidden');
@@ -150,6 +196,9 @@ function sliderServices(){
         }
     }
 
+    console.log(btnLeft)
+    console.log(btnRight)
+
     btnRight.addEventListener('click', function(){
         if(scrollX >= slider.offsetWidth){
             scrollX = 0;
@@ -158,7 +207,7 @@ function sliderServices(){
             scrollX += slider.offsetWidth;
             toggleBtn();
         }
-        
+        console.log(1);
         sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
     });
 
@@ -221,7 +270,7 @@ function sliderSpecialists(item){
         margins = 15 * sliderItem.length - 1;
         sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
     } else {
-        numberMultiplication = 1.5;
+        numberMultiplication = 1.2;
         sliderItem.forEach(el => {
             widthItem = slider.offsetWidth / 1
             el.style.width = Math.trunc(widthItem) + 'px';
@@ -662,6 +711,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/Modals/modal */ "./src/js/modules/Modals/modal.js");
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
 /* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
+/* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
+
 
 
 
@@ -692,7 +743,23 @@ document.addEventListener('DOMContentLoaded', function(){
     } catch{}
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
     try{
-        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])();
+        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])({
+            sliderSer: '.services__info .slider',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        });
+    } catch{}
+    (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])({
+        sliderSer: '.services-all__wrapper .slider',
+        btnLeftSer: '.services-all__wrapper .btn_left',
+        btnRightSer: '.services-all__wrapper .btn_right',
+        sliderWrapperSer: '.slider__wrapper',
+        sliderItemSer: '.slider__item'
+    });
+    try{
+        (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__["default"])();
     } catch{}
     try{
         (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();

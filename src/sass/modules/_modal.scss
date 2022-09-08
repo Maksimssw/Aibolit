@@ -82,3 +82,16 @@
         animation: modal 300ms linear;
     }
 }
+
+@media screen and(max-width: 425px) {
+    .modal{
+        padding-left: 15px;
+        padding-right: 15px;
+        &__wrapper{
+            width: 100%;
+        }
+        &__btn{
+            width: 80%;
+        }
+    }
+}

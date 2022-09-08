@@ -55,7 +55,7 @@
             <div class="order__wrapper">
                 <h1 class="order__title title_big">Оформление заказа</h1>
                 <div class="order__content">
-                    <div class="back">
+                    <div class="back back_order">
                         <div class="back__arrow">
                             <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M6.57129 12C6.57129 12.2151 6.65532 12.4301 6.82303 12.5941L12.1033 17.7538C12.4391 18.0821 12.9837 18.0821 13.3195 17.7538C13.6552 17.4257 13.6552 16.8937 13.3195 16.5654L8.64725 12L13.3193 7.43459C13.6551 7.10636 13.6551 6.57436 13.3193 6.24629C12.9836 5.9179 12.439 5.9179 12.1031 6.24629L6.82287 11.406C6.65513 11.57 6.57129 11.785 6.57129 12Z" fill="#FFC59E" stroke="#FFC59E"/>
@@ -70,11 +70,11 @@
                         <textarea name="descption" id="descption" class="order__decription" cols="30" placeholder="Кратко опишите проблему" rows="10"></textarea>
                         <div id="data" class="data">
                             <div class="data__map">
-                                <input type="text" placeholder="Оплата банковской картой" class="order__input order_map" name="map">
+                                <input id="bank_card" type="text" placeholder="Оплата банковской картой" class="order__input order_map" name="map">
                                 <div class="data__captcha">
                                     <img src="img/Order/captcha.png" alt="captcha">
                                 </div>
-                                <input type="text" placeholder="Введите текст" class="order__input order_map" name="text">
+                                <input id="text" type="text" placeholder="Введите текст" class="order__input order_map" name="text">
                             </div>
                             <p class="data__personal-date">
                                 Ваши личные данные будут использоваться для обработки ваших заказов, упрощения вашей работы с сайтом и для других целей, описанных в нашей политика конфиденциальности.
@@ -195,5 +195,23 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal-city blocker">
+        <div class="modal-city__wrapper">
+            <div class="modal__wrapper-close">
+                <div class="modal_close"></div>
+            </div>
+            <h1 class="modal-city__title title_section">Ваш город</h1>
+            <ul class="city">
+                <li class="city__list">
+                    <a href="#" class="city__link text_link">Волгоград</a>
+                </li>
+                <li class="city__list">
+                    <a href="#" class="city__link text_link">Грозный</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<script src="js/bundle.js"></script>
 </body>
 </html>

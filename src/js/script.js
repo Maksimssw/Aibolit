@@ -7,6 +7,7 @@ import choice from './modules/choice';
 import modal from './modules/Modals/modal';
 import entrance from './modules/entrance';
 import sliderServices from './modules/Sliders/sliderServices';
+import sliderPrice from './modules/Sliders/sliderPrice';
 
 document.addEventListener('DOMContentLoaded', function(){
     modalCity();
@@ -28,7 +29,23 @@ document.addEventListener('DOMContentLoaded', function(){
     } catch{}
     hamburger();
     try{
-        sliderServices();
+        sliderServices({
+            sliderSer: '.services__info .slider',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        });
+    } catch{}
+    sliderServices({
+        sliderSer: '.services-all__wrapper .slider',
+        btnLeftSer: '.services-all__wrapper .btn_left',
+        btnRightSer: '.services-all__wrapper .btn_right',
+        sliderWrapperSer: '.slider__wrapper',
+        sliderItemSer: '.slider__item'
+    });
+    try{
+        sliderPrice();
     } catch{}
     try{
         direction();

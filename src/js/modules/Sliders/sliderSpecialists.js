@@ -30,7 +30,7 @@ function sliderSpecialists(item){
         margins = 15 * sliderItem.length - 1;
         sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
     } else {
-        numberMultiplication = 1.5;
+        numberMultiplication = 1.2;
         sliderItem.forEach(el => {
             widthItem = slider.offsetWidth / 1
             el.style.width = Math.trunc(widthItem) + 'px';
