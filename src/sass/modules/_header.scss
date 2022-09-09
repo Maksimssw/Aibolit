@@ -34,6 +34,10 @@
     }
     &__city{
         text-transform: uppercase;
+        transition: 0.3s all;
+        &:hover, &:focus{
+            opacity: .7;
+        }
     }
 }
 
@@ -50,7 +54,7 @@
         color: $brown;
         transition: 0.3s all;
         &:hover, &:focus{
-            color: $brown;
+            opacity: .7;
         }
     }
 }

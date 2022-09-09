@@ -8,6 +8,7 @@ import modal from './modules/Modals/modal';
 import entrance from './modules/entrance';
 import sliderServices from './modules/Sliders/sliderServices';
 import sliderPrice from './modules/Sliders/sliderPrice';
+import services from './modules/services';
 
 document.addEventListener('DOMContentLoaded', function(){
     modalCity();
@@ -47,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function(){
     try{
         sliderPrice();
     } catch{}
+    try{
+        services();
+    }catch{}
     try{
         direction();
     } catch{}

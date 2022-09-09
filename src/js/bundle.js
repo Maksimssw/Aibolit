@@ -165,52 +165,60 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
     sliderWrapper = slider.querySelector(sliderWrapperSer),
     sliderItem = slider.querySelectorAll(sliderItemSer);
 
+    // Начальная позиция
     let scrollX = 0;
 
+    // Вычесление ширины элементов и ширины контейнера
     function counting(px, i){
         sliderItem.forEach(el => {
             el.style.width = (slider.offsetWidth - px) / i + 'px';
         });
-        console.log(sliderItem[0]);
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
 
+    // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)
     } else if(slider.offsetWidth == 1300){
         counting(75, 4);
+    }else if(slider.offsetWidth == 689){
+        counting(20, 2);
+    }else if(slider.offsetWidth == 650){
+        counting(0, 2);
     }
 
+    // Изменение классов
     function toggleBtn(){
-        if(scrollX >= slider.offsetWidth){
+        // Открытие левой кнопки
+        btnLeft.classList.remove('hidden');
+        btnRight.classList.remove('hidden');
+
+        // Если сколл больше условия, закрытие правой кнопки, а так же открытие левой
+        if(scrollX >= sliderWrapper.offsetWidth - slider.offsetWidth){
             btnRight.classList.add('hidden');
-            btnLeft.classList.remove('hidden');
-        } else{
-            btnLeft.classList.add('hidden');
-            btnLeft.classList.remove('hidden');
         }
-        
+
+        // В начальном значение левая кнопка закрыта
         if(scrollX === 0){
             btnLeft.classList.add('hidden');
-            btnRight.classList.remove('hidden');
         }
-    }
+    }   
 
-    console.log(btnLeft)
-    console.log(btnRight)
-
+    // Обработка правой кнопки
     btnRight.addEventListener('click', function(){
-        if(scrollX >= slider.offsetWidth){
+        if(scrollX >= sliderWrapper.offsetWidth - slider.offsetWidth){
             scrollX = 0;
             toggleBtn();
         } else{
             scrollX += slider.offsetWidth;
             toggleBtn();
         }
-        console.log(1);
+
+        // Скролл контейнера
         sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
     });
 
+    // Обработка левой кнопки
     btnLeft.addEventListener('click', function(){
         if(scrollX === 0){
             scrollX = slider.offsetWidth
@@ -220,6 +228,7 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
             toggleBtn();
         }
         
+        // Скролл контейнера
         sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
     });
 }
@@ -492,6 +501,7 @@ __webpack_require__.r(__webpack_exports__);
 function intro(){
     const wrapper = document.querySelector(".intro__wrapper");
 
+    // Данные блоков
     const caps = [
         {
             title: 'Айболит круглосуточная ветклиника',
@@ -531,6 +541,8 @@ function intro(){
         }
     ]
 
+
+    // Создание блоков
     caps.map(item => {
         const {title, img, classPhoto, classTitle} = item;
 
@@ -584,6 +596,7 @@ function intro(){
 
     let current = 1;
 
+    // Добовление класса active, для отоброжения на странице
     function activeCap(i){
         capList.forEach(el => el.classList.remove('active'));
         btnNum.forEach(el => el.classList.remove('active'));
@@ -591,15 +604,32 @@ function intro(){
         btnNum[i - 1].classList.add("active");
     }
 
+    // Начальное значиние отоброжения
     activeCap(1);
 
-    wrapper.addEventListener('click', function(e){
+    // Обработка цифры при нажатий 
+    function assetProcessing(e){
         if(e.target.classList.contains('intro__list')){
             activeCap(+e.target.textContent);
             current = +e.target.textContent;
         }
+    }
+
+    // Обработка клика
+    wrapper.addEventListener('click', function(e){
+        assetProcessing(e);
     });
 
+    // Обработка кнопки 'Enter'
+    btnNum.forEach(el => {
+        el.addEventListener('keydown', function(e){
+            if(e.code === 'Enter'){
+                assetProcessing(e);
+            }
+        });
+    })
+
+    // Каждые 8 секунд включается новый блок
     setInterval(() => {
         if(current < 6){
             current++;
@@ -612,6 +642,32 @@ function intro(){
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (intro);
+
+/***/ }),
+
+/***/ "./src/js/modules/services.js":
+/*!************************************!*\
+  !*** ./src/js/modules/services.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function services(){
+    const menu = document.querySelector('.services__wrapper .menu'),
+    menuWrapper = menu.querySelector('.menu__wrapper'),
+    menuBtn = menu.querySelector('.menu__wrapper');
+
+    function toggleClassMenu(){
+        menuWrapper.classList.toggle('active');
+    }
+
+    menuBtn.addEventListener('click', toggleClassMenu);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (services());
 
 /***/ }),
 
@@ -712,6 +768,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
 /* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
 /* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
+/* harmony import */ var _modules_services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/services */ "./src/js/modules/services.js");
+
 
 
 
@@ -761,6 +819,9 @@ document.addEventListener('DOMContentLoaded', function(){
     try{
         (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__["default"])();
     } catch{}
+    try{
+        (0,_modules_services__WEBPACK_IMPORTED_MODULE_10__["default"])();
+    }catch{}
     try{
         (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
     } catch{}

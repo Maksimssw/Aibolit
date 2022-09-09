@@ -5,52 +5,60 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
     sliderWrapper = slider.querySelector(sliderWrapperSer),
     sliderItem = slider.querySelectorAll(sliderItemSer);
 
+    // Начальная позиция
     let scrollX = 0;
 
+    // Вычесление ширины элементов и ширины контейнера
     function counting(px, i){
         sliderItem.forEach(el => {
             el.style.width = (slider.offsetWidth - px) / i + 'px';
         });
-        console.log(sliderItem[0]);
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
 
+    // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)
     } else if(slider.offsetWidth == 1300){
         counting(75, 4);
+    }else if(slider.offsetWidth == 689){
+        counting(20, 2);
+    }else if(slider.offsetWidth == 650){
+        counting(0, 2);
     }
 
+    // Изменение классов
     function toggleBtn(){
-        if(scrollX >= slider.offsetWidth){
+        // Открытие левой кнопки
+        btnLeft.classList.remove('hidden');
+        btnRight.classList.remove('hidden');
+
+        // Если сколл больше условия, закрытие правой кнопки, а так же открытие левой
+        if(scrollX >= sliderWrapper.offsetWidth - slider.offsetWidth){
             btnRight.classList.add('hidden');
-            btnLeft.classList.remove('hidden');
-        } else{
-            btnLeft.classList.add('hidden');
-            btnLeft.classList.remove('hidden');
         }
-        
+
+        // В начальном значение левая кнопка закрыта
         if(scrollX === 0){
             btnLeft.classList.add('hidden');
-            btnRight.classList.remove('hidden');
         }
-    }
+    }   
 
-    console.log(btnLeft)
-    console.log(btnRight)
-
+    // Обработка правой кнопки
     btnRight.addEventListener('click', function(){
-        if(scrollX >= slider.offsetWidth){
+        if(scrollX >= sliderWrapper.offsetWidth - slider.offsetWidth){
             scrollX = 0;
             toggleBtn();
         } else{
             scrollX += slider.offsetWidth;
             toggleBtn();
         }
-        console.log(1);
+
+        // Скролл контейнера
         sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
     });
 
+    // Обработка левой кнопки
     btnLeft.addEventListener('click', function(){
         if(scrollX === 0){
             scrollX = slider.offsetWidth
@@ -60,6 +68,7 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
             toggleBtn();
         }
         
+        // Скролл контейнера
         sliderWrapper.style.transform = `translateX(-${scrollX}px)`;
     });
 }
