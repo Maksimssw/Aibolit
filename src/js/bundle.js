@@ -667,7 +667,7 @@ function services(){
     menuBtn.addEventListener('click', toggleClassMenu);
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (services());
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (services);
 
 /***/ }),
 
@@ -766,9 +766,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_choice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/choice */ "./src/js/modules/choice.js");
 /* harmony import */ var _modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/Modals/modal */ "./src/js/modules/Modals/modal.js");
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
-/* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
-/* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
-/* harmony import */ var _modules_services__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/services */ "./src/js/modules/services.js");
+/* harmony import */ var _modules_services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/services */ "./src/js/modules/services.js");
+/* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
+/* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
 
 
 
@@ -782,8 +782,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', function(){
+    // Модальное окно городов во всех страницах 
     (0,_modules_Modals_modalCity__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+    // Гамбургер для меню во всех страницах
+    (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
     try{
+        // Модальное окно для записи
         (0,_modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__["default"])({
             modal: '.modal',
             btnOpen: '.record__list',
@@ -791,42 +796,47 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     } catch{}
     try{
+        // Переход страницу с оплатой
         (0,_modules_entrance__WEBPACK_IMPORTED_MODULE_7__["default"])();
     } catch{};
     try{
-        (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    } catch{}
-    try{
+        // Слайдер специалистов
         (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
     } catch{}
-    (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
     try{
-        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])({
+        // Нижнее меню ссылок 
+        (0,_modules_services__WEBPACK_IMPORTED_MODULE_8__["default"])();
+
+        // Слайдер цен
+        (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__["default"])();
+
+        // Слайдер врачей
+        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({
             sliderSer: '.services__info .slider',
             btnLeftSer: '.slider__btn-left',
             btnRightSer: '.slider__btn-right',
             sliderWrapperSer: '.slider__wrapper',
             sliderItemSer: '.slider__item'
         });
+
+        // Слайдер направлений 
+        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({
+            sliderSer: '.services-all__wrapper .slider',
+            btnLeftSer: '.services-all__wrapper .btn_left',
+            btnRightSer: '.services-all__wrapper .btn_right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        });
     } catch{}
-    (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_8__["default"])({
-        sliderSer: '.services-all__wrapper .slider',
-        btnLeftSer: '.services-all__wrapper .btn_left',
-        btnRightSer: '.services-all__wrapper .btn_right',
-        sliderWrapperSer: '.slider__wrapper',
-        sliderItemSer: '.slider__item'
-    });
     try{
-        (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_9__["default"])();
-    } catch{}
-    try{
-        (0,_modules_services__WEBPACK_IMPORTED_MODULE_10__["default"])();
-    }catch{}
-    try{
+        // Динамическое создание напрпавлений
         (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();
-    } catch{}
-    try{
+
+        // Динамическое создание качеств
         (0,_modules_choice__WEBPACK_IMPORTED_MODULE_5__["default"])();
+
+        // Динамическое создание записи
+        (0,_modules_intro__WEBPACK_IMPORTED_MODULE_1__["default"])();
     } catch{}
 });
 

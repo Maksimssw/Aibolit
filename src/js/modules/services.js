@@ -10,4 +10,4 @@ function services(){
     menuBtn.addEventListener('click', toggleClassMenu);
 }
 
-export default services();
+export default services;
