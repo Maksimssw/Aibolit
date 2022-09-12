@@ -25,6 +25,8 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         counting(20, 2);
     }else if(slider.offsetWidth == 650){
         counting(0, 2);
+    }else if(slider.offsetWidth == 290){
+        counting(0, 1);
     }
 
     // Изменение классов

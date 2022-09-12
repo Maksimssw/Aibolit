@@ -1,5 +1,6 @@
 @import '../base/mixin';
 @import '../base/arrow';
+@import './menuPages';
 
 .services{
     padding: 75px 0 100px;
@@ -36,72 +37,7 @@
     &__record{
         margin: 54px 0 10px 0;
     }
-    .menu{
-        position: fixed;
-        right: 50px;
-        display: none;
-        align-items: end;
-        bottom: 0;
-        width: 320px;
-        height: 300px;
-        &__wrapper{
-            width: 100%;
-            transition: 0.3s all;
-            height: 20%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            background-color: $orange;
-            position: relative;
-        }
-        &__btn{
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            right: 10px;
-            bottom: 10%;
-            box-shadow: 2px 2px 10px rgb(0 0 0 / 0.3);
-            border-radius: 50%;
-            cursor: pointer;
-            align-items: center;
-            transform: rotate(-90deg);
-            transition: 0.3s all;
-            &:focus{
-                transform: translateX(5px);
-            }
-        }
-        &__link{
-            color: $brown;
-            transition: 0.3s all;
-            font-size: 18px;
-        }
-        &__list{
-            margin-right: 0;
-            opacity: 0;
-            transform: translate(15px, 15px);
-            transition: 0.3s all;
-        }
-    }
 }
-
-.menu__wrapper.active{
-    height: 100%;
-    .menu{
-        &__btn{
-            transform: rotate(90deg);
-        }
-        &__list{
-            transform: translate(0, 0);
-            opacity: 1;
-        }
-    }   
-}
-
 
 .slider{
     overflow: hidden;
@@ -322,8 +258,24 @@
 
 @media screen and(max-width: 768px) {
     .slider{
-        width: 340px;
+        width: 290px;
         margin: 0 auto;
+        &__wrapper{
+            gap: 0px;
+        }
+        &__item{
+            display: block;
+        }
+        &__photo{
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+        &__text{
+            width: 250px;
+        }
+        &_btn{
+            top: 30%;
+        }
     }
 }
 
@@ -337,6 +289,16 @@
                 display: block;
                 text-align: end;
             }
+        }
+    }
+    .subtitle{
+        &__photo{
+            height: 260px;
+        }
+    }
+    .price{
+        &__block{
+            display: block;
         }
     }
 }

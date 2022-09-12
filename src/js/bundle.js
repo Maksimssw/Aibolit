@@ -185,6 +185,8 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         counting(20, 2);
     }else if(slider.offsetWidth == 650){
         counting(0, 2);
+    }else if(slider.offsetWidth == 290){
+        counting(0, 1);
     }
 
     // Изменение классов
@@ -645,9 +647,9 @@ function intro(){
 
 /***/ }),
 
-/***/ "./src/js/modules/services.js":
+/***/ "./src/js/modules/menuPage.js":
 /*!************************************!*\
-  !*** ./src/js/modules/services.js ***!
+  !*** ./src/js/modules/menuPage.js ***!
   \************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -655,19 +657,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function services(){
-    const menu = document.querySelector('.services__wrapper .menu'),
-    menuWrapper = menu.querySelector('.menu__wrapper'),
-    menuBtn = menu.querySelector('.menu__wrapper');
+function menuPage({menuPage, menuWrapperPage, menuBtnPage}){
+    const menu = document.querySelector(menuPage),
+    menuWrapper = menu.querySelector(menuWrapperPage),
+    menuBtn = menu.querySelector(menuBtnPage);
 
     function toggleClassMenu(){
         menuWrapper.classList.toggle('active');
     }
 
-    menuBtn.addEventListener('click', toggleClassMenu);
+    menuBtn.addEventListener('click', function(){
+        if(menuWrapper.classList.contains('active')){
+            menuBtn.style.transform = 'rotate(-90deg)';
+            menuWrapper.classList.remove('active');
+        } else{
+            toggleClassMenu();
+        }
+    });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (services);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menuPage);
 
 /***/ }),
 
@@ -766,7 +775,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_choice__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/choice */ "./src/js/modules/choice.js");
 /* harmony import */ var _modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/Modals/modal */ "./src/js/modules/Modals/modal.js");
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
-/* harmony import */ var _modules_services__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/services */ "./src/js/modules/services.js");
+/* harmony import */ var _modules_menuPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menuPage */ "./src/js/modules/menuPage.js");
 /* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
 /* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
 
@@ -805,7 +814,11 @@ document.addEventListener('DOMContentLoaded', function(){
     } catch{}
     try{
         // Нижнее меню ссылок 
-        (0,_modules_services__WEBPACK_IMPORTED_MODULE_8__["default"])();
+        (0,_modules_menuPage__WEBPACK_IMPORTED_MODULE_8__["default"])({
+            menuPage: '.services__wrapper .menu-page',
+            menuWrapperPage: '.menu-page__wrapper',
+            menuBtnPage: '.menu-page__btn'
+        });
 
         // Слайдер цен
         (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__["default"])();

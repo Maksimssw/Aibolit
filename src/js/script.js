@@ -6,7 +6,7 @@ import sliderSpecialists from './modules/Sliders/sliderSpecialists';
 import choice from './modules/choice';
 import modal from './modules/Modals/modal';
 import entrance from './modules/entrance';
-import services from './modules/services';
+import menuPage from './modules/menuPage';
 import sliderServices from './modules/Sliders/sliderServices';
 import sliderPrice from './modules/Sliders/sliderPrice';
 
@@ -34,7 +34,11 @@ document.addEventListener('DOMContentLoaded', function(){
     } catch{}
     try{
         // Нижнее меню ссылок 
-        services();
+        menuPage({
+            menuPage: '.services__wrapper .menu-page',
+            menuWrapperPage: '.menu-page__wrapper',
+            menuBtnPage: '.menu-page__btn'
+        });
 
         // Слайдер цен
         sliderPrice();
