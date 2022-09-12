@@ -8,7 +8,7 @@
     }
     &__cat{
         width: 100%;
-        height: 470px;
+        height: auto;
         border-radius: 20px;
         margin-bottom: 50px;
         overflow: hidden;
@@ -44,7 +44,7 @@
     }
     &__animal{
         width: 430px;
-        height: 424px;
+        height: auto;
         overflow: hidden;
         border-radius: 20px;
         img{
@@ -55,5 +55,24 @@
     &:last-child{
         margin-top: 70px;
         margin-bottom: 0;
+    }
+}
+
+#subtitle_three{
+    margin-bottom: 0;
+    margin-top: 70px;
+}
+
+@media screen and(max-width: 1024px) {
+    .article{
+        &__info{
+            width: 100%;
+        }
+    }
+    .subtitle{
+        &__animal{
+            width: 45%;
+            height: auto;
+        }
     }
 }

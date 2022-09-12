@@ -30,13 +30,13 @@ function sliderSpecialists(item){
         margins = 15 * sliderItem.length - 1;
         sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
     } else {
-        numberMultiplication = 1;
+        numberMultiplication = 1.5;
         sliderItem.forEach(el => {
             widthItem = slider.offsetWidth / 1
             el.style.width = Math.trunc(widthItem) + 'px';
 
         });
-        margins = 15 * sliderItem.length - 1;
+        margins = sliderItem.length - 1;
         sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
     }
 
