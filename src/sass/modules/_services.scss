@@ -9,30 +9,8 @@
         justify-content: space-around;
         position: relative;
     }
-    &__nav{
-        margin: 54px 0px 0 0;
-    }
     &__info{
         width: 1032px;
-    }
-    &__title{
-        margin-bottom: 100px;
-        font-family: "SchoolBook";
-    }
-    &__link{
-        color: $brownLight;
-        transition: 0.3s all;
-        display: block;
-        &:hover, &:focus{
-            color: $brown;
-            transform: translateX(10px);
-        }
-    }
-    &__list{
-        margin-bottom: 30px;
-        &:last-child{
-            margin-bottom: 0;
-        }
     }
     &__record{
         margin: 54px 0 10px 0;
@@ -233,9 +211,6 @@
 
 @media screen and(max-width: 1440px) {
     .services{
-        &__nav{
-            display: none;
-        }
         .menu{
             display: flex;
         }

@@ -281,7 +281,7 @@ function sliderSpecialists(item){
         margins = 15 * sliderItem.length - 1;
         sliderWrapper.style.width = Math.trunc(widthItem) * sliderItem.length + 'px';
     } else {
-        numberMultiplication = 1.2;
+        numberMultiplication = 1;
         sliderItem.forEach(el => {
             widthItem = slider.offsetWidth / 1
             el.style.width = Math.trunc(widthItem) + 'px';
@@ -663,6 +663,7 @@ function menuPage({menuPage, menuWrapperPage, menuBtnPage}){
     menuBtn = menu.querySelector(menuBtnPage);
 
     function toggleClassMenu(){
+        menuBtn.style.transform = 'rotate(90deg)';
         menuWrapper.classList.toggle('active');
     }
 
@@ -796,6 +797,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Гамбургер для меню во всех страницах
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
+
     try{
         // Модальное окно для записи
         (0,_modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__["default"])({
@@ -804,6 +806,7 @@ document.addEventListener('DOMContentLoaded', function(){
             btnClose: '.modal_close-entrance'
         })
     } catch{}
+
     try{
         // Переход страницу с оплатой
         (0,_modules_entrance__WEBPACK_IMPORTED_MODULE_7__["default"])();
@@ -812,14 +815,17 @@ document.addEventListener('DOMContentLoaded', function(){
         // Слайдер специалистов
         (0,_modules_Sliders_sliderSpecialists__WEBPACK_IMPORTED_MODULE_4__["default"])();
     } catch{}
+
     try{
         // Нижнее меню ссылок 
         (0,_modules_menuPage__WEBPACK_IMPORTED_MODULE_8__["default"])({
-            menuPage: '.services__wrapper .menu-page',
+            menuPage: '.menu-page',
             menuWrapperPage: '.menu-page__wrapper',
             menuBtnPage: '.menu-page__btn'
         });
+    }catch{}
 
+    try{
         // Слайдер цен
         (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__["default"])();
 
@@ -841,6 +847,7 @@ document.addEventListener('DOMContentLoaded', function(){
             sliderItemSer: '.slider__item'
         });
     } catch{}
+
     try{
         // Динамическое создание напрпавлений
         (0,_modules_direction__WEBPACK_IMPORTED_MODULE_3__["default"])();

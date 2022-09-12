@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Гамбургер для меню во всех страницах
     hamburger();
+
     try{
         // Модальное окно для записи
         modal({
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
             btnClose: '.modal_close-entrance'
         })
     } catch{}
+
     try{
         // Переход страницу с оплатой
         entrance();
@@ -32,14 +34,17 @@ document.addEventListener('DOMContentLoaded', function(){
         // Слайдер специалистов
         sliderSpecialists();
     } catch{}
+
     try{
         // Нижнее меню ссылок 
         menuPage({
-            menuPage: '.services__wrapper .menu-page',
+            menuPage: '.menu-page',
             menuWrapperPage: '.menu-page__wrapper',
             menuBtnPage: '.menu-page__btn'
         });
+    }catch{}
 
+    try{
         // Слайдер цен
         sliderPrice();
 
@@ -61,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function(){
             sliderItemSer: '.slider__item'
         });
     } catch{}
+
     try{
         // Динамическое создание напрпавлений
         direction();

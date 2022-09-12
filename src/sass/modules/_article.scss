@@ -1,0 +1,59 @@
+@import '../base/mixin';
+
+.article{
+    padding: 75px 10px 100px;
+    &__wrapper{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__cat{
+        width: 100%;
+        height: 470px;
+        border-radius: 20px;
+        margin-bottom: 50px;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__info{
+        width: 909px;
+    }
+}
+
+.subtitle{
+    margin-bottom: 100px;
+    &__title{
+        margin-bottom: 30px;
+        font-family: 'SchoolBook';
+    }
+    &__text{
+        margin-bottom: 30px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+    &:nth-child(1){
+        margin-bottom: 100px;
+    }
+    &__photo{
+        display: flex;
+        justify-content: space-between;
+        margin: 50px 0;
+    }
+    &__animal{
+        width: 430px;
+        height: 424px;
+        overflow: hidden;
+        border-radius: 20px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &:last-child{
+        margin-top: 70px;
+        margin-bottom: 0;
+    }
+}

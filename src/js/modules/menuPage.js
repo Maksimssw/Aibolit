@@ -4,6 +4,7 @@ function menuPage({menuPage, menuWrapperPage, menuBtnPage}){
     menuBtn = menu.querySelector(menuBtnPage);
 
     function toggleClassMenu(){
+        menuBtn.style.transform = 'rotate(90deg)';
         menuWrapper.classList.toggle('active');
     }
 
