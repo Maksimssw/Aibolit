@@ -1,0 +1,51 @@
+@import '../base/mixin';
+
+.group{
+    padding: 150px 10px 100px;
+    &__wrapper{
+        display: flex;
+        justify-content: space-around;
+    }
+    &__info{
+        width: 909px;
+    }
+    &__people{
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 50px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    &__about{
+        margin-bottom: 30px;
+    }
+}
+
+.specialists{
+    margin-top: 100px;
+    &__title{
+        margin-bottom: 50px;
+        font-family: 'SchoolBook';
+    }
+    &__wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 442px);
+        gap: 25px
+    }
+    &__list{
+        display: block;
+        border-radius: 20px;
+        background: $white;
+        box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        padding: 30px;
+        transition: 0.3s all;
+        &:hover, &:focus{
+            transform: translateY(-5px);
+        }
+    }
+}
