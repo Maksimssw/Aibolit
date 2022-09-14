@@ -48,4 +48,28 @@
             transform: translateY(-5px);
         }
     }
+    &__photo{
+        width: 130px;
+        height: 130px;
+        border-radius: 100%;
+        overflow: hidden;
+        margin-bottom: 20px;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__experience{
+        @include font ($orange, 700, 15px, 20px);
+        text-align: center;
+    }
+    &__human{
+        margin-right: 20px;
+    }
+    &__subtitle{
+        margin-bottom: 10px;
+    }
+    &__name{
+        margin-bottom: 20px;
+    }
 }

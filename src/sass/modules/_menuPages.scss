@@ -65,6 +65,9 @@
 }
 
 .navigation{
+    position: sticky;
+    top: 40px;
+    height: fit-content;
     &__title{
         margin-bottom: 100px;
         font-family: "SchoolBook";

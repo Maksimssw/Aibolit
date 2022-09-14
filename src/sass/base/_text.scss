@@ -9,11 +9,17 @@
     &_big{
         @include font($dark, 400, 80px, 110px);
     }
+    &_part{
+        @include font($dark, 400, 20px, 25px);
+    }
 }
 
 .text{
     @include font($dark, 400, 20px, 30px);
     &_link{
         @include font($orange, 700, 20px, 20px);
+    }
+    &_subtitle{
+        @include font($brownLight, 400, 15px, 15px);
     }
 }
