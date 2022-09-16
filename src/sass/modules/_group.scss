@@ -34,7 +34,8 @@
     &__wrapper{
         display: grid;
         grid-template-columns: repeat(2, 442px);
-        gap: 25px
+        gap: 25px;
+        justify-content: center;
     }
     &__list{
         display: block;
@@ -71,5 +72,56 @@
     }
     &__name{
         margin-bottom: 20px;
+    }
+}
+
+@media screen and(max-width: 1024px) {
+    .group{
+        padding: 80px 10px 80px;
+        &__info{
+            width: 100%;
+        }
+    }
+    .specialists{
+        &__wrapper{
+            grid-template-columns: repeat(2, 49%);
+        }
+        &__name{
+            font-size: 17px;
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .specialists{
+        &__list{
+            display: block;
+            padding: 15px;
+        }
+        &__human{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-right: 0;
+        }
+        &__photo{
+            width: 90px;
+            height: 90px;
+        }
+        &__wrapper{
+            gap: 15px;
+        }
+    }
+}
+
+@media screen and(max-width: 425px) {
+    .specialists{
+        &__wrapper{
+            grid-template-columns: 100%;
+        }
+        &__photo{
+            width: 110px;
+            height: 110px;
+        }
     }
 }
