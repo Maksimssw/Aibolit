@@ -8,9 +8,10 @@ function modal({modal, btnOpen, btnClose}){
     modalBtnOpen.forEach(el => {
         el.addEventListener("click", function(){
             openModal(modalWrapper);
+            modalWrapper.style.overflow = 'hidden';
         });
     })
-
+    
     modalBtnClose.addEventListener('click', function(){
         closeModal(modalWrapper);
     });

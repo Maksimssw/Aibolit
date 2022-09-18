@@ -16,14 +16,20 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
 
+    console.log(sliderItem.length);
+
     // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)
     } else if(slider.offsetWidth == 1300){
         counting(75, 4);
+    }else if(slider.offsetWidth == 777){
+        counting(0, 3);
     }else if(slider.offsetWidth == 689){
         counting(20, 2);
     }else if(slider.offsetWidth == 650){
+        counting(0, 2);
+    }else if(slider.offsetWidth == 550){
         counting(0, 2);
     }else if(slider.offsetWidth == 290){
         counting(0, 1);

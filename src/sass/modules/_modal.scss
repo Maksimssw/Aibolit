@@ -11,6 +11,7 @@
 }
 
 .modal{
+    z-index: 10;
     top: 0;
     position: fixed;
     left: 0;
@@ -18,6 +19,9 @@
     background: rgba(8, 6, 6, 0.5);
     display: flex;
     padding-top: 50vh;
+    &_reviews{
+        padding-top: 200px;
+    }
     width: 100%;
     justify-content: center;
     &__wrapper{
@@ -28,12 +32,30 @@
         box-shadow: 2px 2px 20px rgba(155, 82, 50, 0.1);
         border-radius: 20px;
         padding: 50px 25px;
+        &_feedback{
+            width: 600px;
+        }
+        &_consideration{
+            width: 500px;
+            padding: 107px 0;
+        }
+    }
+    &_consideration{
+        padding-top: 400px;
     }
     &__title{
         text-align: center;
         width: 183px;
         margin: 0 auto;
         margin-bottom: 32px;
+        &_feedback{
+            width: 100%;
+        }
+        &_consideration{
+            width: 309px;
+            color: $dark;
+            font-weight: 400;
+        }
     }
     &__tel{
         outline: none;
@@ -64,6 +86,17 @@
         text-align: center;
         margin-bottom: 30px;
         display: none;
+    }
+    &__text{
+        min-width: 400px;
+        max-width: 100%;
+        height: 368px;
+        display: block;
+        margin: 0 auto 36px;
+        border: 1px solid $brownLight;
+        border-radius: 20px;
+        padding: 16px;
+        color: $dark;
     }
 }
 

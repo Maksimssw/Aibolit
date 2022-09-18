@@ -23,9 +23,10 @@ function modal({modal, btnOpen, btnClose}){
     modalBtnOpen.forEach(el => {
         el.addEventListener("click", function(){
             (0,_toggleModal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modalWrapper);
+            modalWrapper.style.overflow = 'hidden';
         });
     })
-
+    
     modalBtnClose.addEventListener('click', function(){
         ;(0,_toggleModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modalWrapper);
     });
@@ -106,35 +107,37 @@ function openModal(modal) {
 
 /***/ }),
 
-/***/ "./src/js/modules/Sliders/sliderPrice.js":
-/*!***********************************************!*\
-  !*** ./src/js/modules/Sliders/sliderPrice.js ***!
-  \***********************************************/
+/***/ "./src/js/modules/Sliders/slider.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/Sliders/slider.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function sliderPrice(){
-    const slider = document.querySelector('.price .slider'),
-    priceCost = slider.querySelectorAll('.price__cost'),
-    priceNum = document.querySelectorAll('.price__list'),
-    sliderWrapper = slider.querySelector('.slider__wrapper');
+function slider({sliderArg, constArg, numArg, sliderWrapperArg}){
+    const slider = document.querySelector(sliderArg),
+    cost = slider.querySelectorAll(constArg),
+    num = document.querySelectorAll(numArg),
+    sliderWrapper = slider.querySelector(sliderWrapperArg);
 
-    priceCost.forEach(el => el.style.width = slider.offsetWidth + 'px');
+    console.log(num);
+
+    cost.forEach(el => el.style.width = slider.offsetWidth + 'px');
 
     function toggleNumberSlider(i){
-        priceNum.forEach(el => el.classList.remove('active'));
-        priceNum[i - 1].classList.add('active');
-        priceNum[i + 3].classList.add('active');
+        num.forEach(el => el.classList.remove('active'));
+        num[i - 1].classList.add('active');
+        num[i + 3].classList.add('active');
     }
 
     toggleNumberSlider(1);
 
-    sliderWrapper.style.width = priceCost.length * 100 + '%';
+    sliderWrapper.style.width = cost.length * 100 + '%';
 
-    priceNum.forEach(el => {
+    num.forEach(el => {
         el.addEventListener('click', function(e){
             const num = +e.target.innerText
             toggleNumberSlider(num);
@@ -144,7 +147,7 @@ function sliderPrice(){
     })
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sliderPrice);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);
 
 /***/ }),
 
@@ -176,14 +179,20 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
 
+    console.log(sliderItem.length);
+
     // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)
     } else if(slider.offsetWidth == 1300){
         counting(75, 4);
+    }else if(slider.offsetWidth == 777){
+        counting(0, 3);
     }else if(slider.offsetWidth == 689){
         counting(20, 2);
     }else if(slider.offsetWidth == 650){
+        counting(0, 2);
+    }else if(slider.offsetWidth == 550){
         counting(0, 2);
     }else if(slider.offsetWidth == 290){
         counting(0, 1);
@@ -458,6 +467,80 @@ function entrance (){
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (entrance);
+
+/***/ }),
+
+/***/ "./src/js/modules/feedback.js":
+/*!************************************!*\
+  !*** ./src/js/modules/feedback.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Modals/toggleModal */ "./src/js/modules/Modals/toggleModal.js");
+
+
+function feedback(){
+    const feedback = document.querySelector('.modal__text'),
+    messageError = document.querySelector('.modal__error'),
+    modalReviews = document.querySelector('.modal_reviews'),
+    modalConsideration = document.querySelector('.modal_consideration'),
+    modalBtn = document.querySelector('.modal__btn'),
+    modalClose = document.querySelectorAll('.modal_close');
+
+    // Обработка события получения данных
+    feedback.addEventListener('input', function(e){
+        let feedbackValue = e.target.value;
+
+        // Если в поле есть текст, то удаляется сообщение
+        // об ошибке ,а так же кнопка становится активной.
+        if(feedbackValue){
+            messageError.classList.remove('active');
+
+            modalBtn.classList.add('active');
+        }
+        // В случае если текста нетy:  
+        // Показывается текст об ошибке.
+        // Кнопка становится не активной.
+        else{
+            messageError.classList.add('active');
+            modalBtn.classList.remove('active');
+        }
+    });
+
+    // Обработка события с кнопкой "Отправить"
+    modalBtn.addEventListener('click', function(e){
+        e.preventDefault();
+
+        // В случае если кнопка активна:
+        if(modalBtn.classList.contains('active')){
+            // Закрытие модального окна с создание отзыва.
+            (0,_Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modalReviews);
+
+            // Очистка поля ввода.
+            feedback.value = '';
+
+            messageError.classList.add('active');
+            modalBtn.classList.remove('active');
+
+            // Открытие модального окна с рассмотрением отзыва.
+            (0,_Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__.openModal)(modalConsideration);
+        }
+    })
+
+    // Все кнопки закрытия модального окна
+    modalClose.forEach(el => {
+        // При нажатий закрытие модального окна
+        el.addEventListener('click', function(){
+            ;(0,_Modals_toggleModal__WEBPACK_IMPORTED_MODULE_0__.closeModal)(modalConsideration);
+        });
+    })
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (feedback);
 
 /***/ }),
 
@@ -778,7 +861,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_entrance__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/entrance */ "./src/js/modules/entrance.js");
 /* harmony import */ var _modules_menuPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/menuPage */ "./src/js/modules/menuPage.js");
 /* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
-/* harmony import */ var _modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/Sliders/sliderPrice */ "./src/js/modules/Sliders/sliderPrice.js");
+/* harmony import */ var _modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/Sliders/slider */ "./src/js/modules/Sliders/slider.js");
+/* harmony import */ var _modules_feedback__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/feedback */ "./src/js/modules/feedback.js");
+
 
 
 
@@ -826,8 +911,43 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch{}
 
     try{
+        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({
+            sliderSer: '.slider__container',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        })
+    }catch{}
+
+    try{
+        // Слайдер отзывов
+        (0,_modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__["default"])({
+            sliderArg: '.slider_reviews',
+            constArg: '.slider__item',
+            numArg: '.pages__item',
+            sliderWrapperArg: '.slider__wrapper'
+        }) 
+
+        // Создание отзыва
+        ;(0,_modules_feedback__WEBPACK_IMPORTED_MODULE_11__["default"])();
+
+        // Модальное окно для создания отзыва
+        (0,_modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__["default"])({
+            modal: '.modal',
+            btnOpen: '.office__feedback',
+            btnClose: '.modal_close-entrance'
+        })
+    } catch{}
+
+    try{
         // Слайдер цен
-        (0,_modules_Sliders_sliderPrice__WEBPACK_IMPORTED_MODULE_10__["default"])();
+        (0,_modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__["default"])({
+            sliderArg: '.price .slider',
+            constArg: '.price__cost',
+            numArg: '.price__list',
+            sliderWrapperArg: '.slider__wrapper'
+        });
 
         // Слайдер врачей
         (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({

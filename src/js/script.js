@@ -8,7 +8,8 @@ import modal from './modules/Modals/modal';
 import entrance from './modules/entrance';
 import menuPage from './modules/menuPage';
 import sliderServices from './modules/Sliders/sliderServices';
-import sliderPrice from './modules/Sliders/sliderPrice';
+import slider from './modules/Sliders/slider';
+import feedback from './modules/feedback';
 
 document.addEventListener('DOMContentLoaded', function(){
     // Модальное окно городов во всех страницах 
@@ -45,8 +46,43 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch{}
 
     try{
+        sliderServices({
+            sliderSer: '.slider__container',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        })
+    }catch{}
+
+    try{
+        // Слайдер отзывов
+        slider({
+            sliderArg: '.slider_reviews',
+            constArg: '.slider__item',
+            numArg: '.pages__item',
+            sliderWrapperArg: '.slider__wrapper'
+        }) 
+
+        // Создание отзыва
+        feedback();
+
+        // Модальное окно для создания отзыва
+        modal({
+            modal: '.modal',
+            btnOpen: '.office__feedback',
+            btnClose: '.modal_close-entrance'
+        })
+    } catch{}
+
+    try{
         // Слайдер цен
-        sliderPrice();
+        slider({
+            sliderArg: '.price .slider',
+            constArg: '.price__cost',
+            numArg: '.price__list',
+            sliderWrapperArg: '.slider__wrapper'
+        });
 
         // Слайдер врачей
         sliderServices({

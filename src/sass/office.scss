@@ -1,0 +1,39 @@
+@import './base/button';
+@import './base/mixin';
+@import './base/text';
+@import './base/variable';
+
+body{
+    font-family: 'Futura New', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1760px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@import './modules/back';
+@import './modules/header';
+@import './modules/footer';
+@import './base/arrow';
+@import './modules/modalCity';
+@import './modules/menuPages';
+@import './modules/office';
+@import './modules/modal';
+@import './modules/reviews';

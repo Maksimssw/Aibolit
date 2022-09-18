@@ -22,4 +22,7 @@
     &_subtitle{
         @include font($brownLight, 400, 15px, 15px);
     }
+    &_section{
+        @include font($brownLight, 400, 20px, 25px);
+    }
 }
