@@ -125,13 +125,11 @@ function slider({sliderArg, constArg, numArg, sliderWrapperArg}){
 
     cost.forEach(el => el.style.width = slider.offsetWidth + 'px');
 
-    console.log(num);
-
     function toggleNumberSlider(i){
         num.forEach(el => el.classList.remove('active'));
         num[i - 1].classList.add('active');
         num[i + 3].classList.add('active');
-    }
+    };
 
     toggleNumberSlider(1);
 
@@ -178,9 +176,7 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         });
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
-
-    console.log(sliderItem.length);
-
+    
     // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)
@@ -911,16 +907,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch{}
 
     try{
-        (0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({
-            sliderSer: '.slider__container',
-            btnLeftSer: '.slider__btn-left',
-            btnRightSer: '.slider__btn-right',
-            sliderWrapperSer: '.slider__wrapper',
-            sliderItemSer: '.slider__item'
-        })
-    }catch{}
-
-    try{
         // Слайдер отзывов
         (0,_modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__["default"])({
             sliderArg: '.slider_reviews',
@@ -938,7 +924,17 @@ document.addEventListener('DOMContentLoaded', function(){
             btnOpen: '.office__feedback',
             btnClose: '.modal_close-entrance'
         })
+
+        // Сладйер пройденных курсов
+        ;(0,_modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__["default"])({
+            sliderSer: '.slider_courses .slider__container',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        })
     } catch{}
+
 
     try{
         // Слайдер цен
@@ -971,7 +967,7 @@ document.addEventListener('DOMContentLoaded', function(){
     try{
         // Слайдер Блога
         (0,_modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__["default"])({
-            sliderArg: '.slider',
+            sliderArg: '.blog__info .slider',
             constArg: '.slider__item',
             numArg: '.pages__item',
             sliderWrapperArg: '.slider__wrapper'

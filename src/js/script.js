@@ -46,16 +46,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }catch{}
 
     try{
-        sliderServices({
-            sliderSer: '.slider__container',
-            btnLeftSer: '.slider__btn-left',
-            btnRightSer: '.slider__btn-right',
-            sliderWrapperSer: '.slider__wrapper',
-            sliderItemSer: '.slider__item'
-        })
-    }catch{}
-
-    try{
         // Слайдер отзывов
         slider({
             sliderArg: '.slider_reviews',
@@ -73,7 +63,17 @@ document.addEventListener('DOMContentLoaded', function(){
             btnOpen: '.office__feedback',
             btnClose: '.modal_close-entrance'
         })
+
+        // Сладйер пройденных курсов
+        sliderServices({
+            sliderSer: '.slider_courses .slider__container',
+            btnLeftSer: '.slider__btn-left',
+            btnRightSer: '.slider__btn-right',
+            sliderWrapperSer: '.slider__wrapper',
+            sliderItemSer: '.slider__item'
+        })
     } catch{}
+
 
     try{
         // Слайдер цен
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function(){
     try{
         // Слайдер Блога
         slider({
-            sliderArg: '.slider',
+            sliderArg: '.blog__info .slider',
             constArg: '.slider__item',
             numArg: '.pages__item',
             sliderWrapperArg: '.slider__wrapper'

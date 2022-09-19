@@ -53,9 +53,15 @@
     }
     &__date{
         margin-bottom: 10px;
+        &_end{
+            color: $brown
+        }
     }
     &__description{
         color: $dark;
+    }
+    &_end{
+        opacity: .5;
     }
 }
 

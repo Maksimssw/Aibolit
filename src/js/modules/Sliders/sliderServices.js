@@ -15,9 +15,7 @@ function sliderServices({sliderSer, btnLeftSer, btnRightSer, sliderWrapperSer, s
         });
         sliderWrapper.style.width = sliderItem[0].offsetWidth * sliderItem.length + 'px';
     }
-
-    console.log(sliderItem.length);
-
+    
     // Адаптация Слайдеров 
     if(slider.offsetWidth == 1032){
         counting(40, 3)

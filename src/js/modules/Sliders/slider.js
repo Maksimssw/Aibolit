@@ -6,13 +6,11 @@ function slider({sliderArg, constArg, numArg, sliderWrapperArg}){
 
     cost.forEach(el => el.style.width = slider.offsetWidth + 'px');
 
-    console.log(num);
-
     function toggleNumberSlider(i){
         num.forEach(el => el.classList.remove('active'));
         num[i - 1].classList.add('active');
         num[i + 3].classList.add('active');
-    }
+    };
 
     toggleNumberSlider(1);
 
