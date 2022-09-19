@@ -1,0 +1,96 @@
+@import '../base/mixin';
+@import '../base/pages';
+
+.blog{
+    padding: 90px 10px 100px;
+    &__wrapper{
+        display: flex;
+        justify-content: space-around;
+
+    }
+    &__info{
+        width: 909px;
+    }
+}
+
+.slider{
+    padding: 58px 0;
+    overflow: hidden;
+    &__wrapper{
+        width: 400%;
+        display: flex;
+        transition: 0.3s all;
+    }
+    &__item{
+        width: 909px;
+    }
+}
+
+.card{
+    display: flex;
+    margin-bottom: 60px;
+    &:last-child{
+        margin-bottom: 0;
+    }
+    &__photo{
+        width: 255px;
+        height: 255px;
+        overflow: hidden;
+        border-radius: 20px;
+        display: flex;
+        flex: none;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__info{
+        padding: 30px;
+    }
+    &__title{
+        @include font($dark, 400, 30px, 50px);
+        margin-bottom: 20px;
+    }
+    &__date{
+        margin-bottom: 10px;
+    }
+    &__description{
+        color: $dark;
+    }
+}
+
+@media screen and(max-width: 1024px) {
+    .slider{
+        width: 100%;
+    }
+    .blog{
+        &__info{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and(max-width: 768px) {
+    .card{
+        display: block;
+        &__photo{
+            width: 50%;
+            height: auto;
+            margin: 0 auto;
+        }
+        &__info{
+            padding: 15px;
+        }
+    }
+}
+
+@media screen and(max-width: 425px) {
+    .card{
+        &__title{
+            font-size: 24px;
+        }
+        &__description{
+            font-size: 18px;
+        }
+    }
+}

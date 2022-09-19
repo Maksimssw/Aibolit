@@ -123,9 +123,9 @@ function slider({sliderArg, constArg, numArg, sliderWrapperArg}){
     num = document.querySelectorAll(numArg),
     sliderWrapper = slider.querySelector(sliderWrapperArg);
 
-    console.log(num);
-
     cost.forEach(el => el.style.width = slider.offsetWidth + 'px');
+
+    console.log(num);
 
     function toggleNumberSlider(i){
         num.forEach(el => el.classList.remove('active'));
@@ -967,6 +967,16 @@ document.addEventListener('DOMContentLoaded', function(){
             sliderItemSer: '.slider__item'
         });
     } catch{}
+
+    try{
+        // Слайдер Блога
+        (0,_modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__["default"])({
+            sliderArg: '.slider',
+            constArg: '.slider__item',
+            numArg: '.pages__item',
+            sliderWrapperArg: '.slider__wrapper'
+        });
+    }catch{}
 
     try{
         // Динамическое создание напрпавлений

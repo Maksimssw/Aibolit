@@ -1,0 +1,22 @@
+@import './variable';
+
+.pages{
+    display: flex;
+    width: 96px;
+    justify-content: space-between;
+    &__item{
+        color: $brownLight;
+        transition: 0.3s all;
+        cursor: pointer;
+        &:hover{
+            color: $dark;
+        }
+    }
+    &_blog{
+        margin-left: auto;
+    }
+}
+
+.pages__item.active{
+    color: $dark;
+}

@@ -4,9 +4,9 @@ function slider({sliderArg, constArg, numArg, sliderWrapperArg}){
     num = document.querySelectorAll(numArg),
     sliderWrapper = slider.querySelector(sliderWrapperArg);
 
-    console.log(num);
-
     cost.forEach(el => el.style.width = slider.offsetWidth + 'px');
+
+    console.log(num);
 
     function toggleNumberSlider(i){
         num.forEach(el => el.classList.remove('active'));

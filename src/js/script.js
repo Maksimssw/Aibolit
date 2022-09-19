@@ -104,6 +104,16 @@ document.addEventListener('DOMContentLoaded', function(){
     } catch{}
 
     try{
+        // Слайдер Блога
+        slider({
+            sliderArg: '.slider',
+            constArg: '.slider__item',
+            numArg: '.pages__item',
+            sliderWrapperArg: '.slider__wrapper'
+        });
+    }catch{}
+
+    try{
         // Динамическое создание напрпавлений
         direction();
 
