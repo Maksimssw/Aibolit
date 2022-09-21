@@ -10,6 +10,7 @@ import menuPage from './modules/menuPage';
 import sliderServices from './modules/Sliders/sliderServices';
 import slider from './modules/Sliders/slider';
 import feedback from './modules/feedback';
+import smoothScrolling from './modules/smoothScrolling';
 
 document.addEventListener('DOMContentLoaded', function(){
     // Модальное окно городов во всех страницах 
@@ -18,10 +19,8 @@ document.addEventListener('DOMContentLoaded', function(){
     // Гамбургер для меню во всех страницах
     hamburger();
 
-    try{
-        // Плавный скролл ссылок 
-        smoothScrolling();
-    }catch{}
+    // Плавный скролл ссылок 
+    smoothScrolling();
 
     try{
         // Модальное окно для записи

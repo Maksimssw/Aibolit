@@ -760,6 +760,43 @@ function menuPage({menuPage, menuWrapperPage, menuBtnPage}){
 
 /***/ }),
 
+/***/ "./src/js/modules/smoothScrolling.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/smoothScrolling.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function smoothScrolling(){
+
+    // Получение всех ссылок 
+    const anchors = document.querySelectorAll('a[href*="#"]');
+
+    // Прогоняем каждый элемент по 1
+    for(let anchor of anchors){
+        // Для каждой ссылке добавляем обработчик события 
+        anchor.addEventListener('click', function(e){
+            // Отмена стандартного поведения 
+            e.preventDefault();
+
+            // Получение значения атрибута 
+            const blockId = anchor.getAttribute('href');
+
+            document.querySelector('' + blockId).scrollIntoView({
+                behavior: "smooth",
+                block: 'start'
+            })
+        });
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (smoothScrolling);
+
+/***/ }),
+
 /***/ "./src/js/server/server.js":
 /*!*********************************!*\
   !*** ./src/js/server/server.js ***!
@@ -859,6 +896,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_Sliders_sliderServices__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Sliders/sliderServices */ "./src/js/modules/Sliders/sliderServices.js");
 /* harmony import */ var _modules_Sliders_slider__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/Sliders/slider */ "./src/js/modules/Sliders/slider.js");
 /* harmony import */ var _modules_feedback__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./modules/feedback */ "./src/js/modules/feedback.js");
+/* harmony import */ var _modules_smoothScrolling__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./modules/smoothScrolling */ "./src/js/modules/smoothScrolling.js");
+
 
 
 
@@ -879,10 +918,8 @@ document.addEventListener('DOMContentLoaded', function(){
     // Гамбургер для меню во всех страницах
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
-    try{
-        // Плавный скролл ссылок 
-        smoothScrolling();
-    }catch{}
+    // Плавный скролл ссылок 
+    (0,_modules_smoothScrolling__WEBPACK_IMPORTED_MODULE_12__["default"])();
 
     try{
         // Модальное окно для записи
