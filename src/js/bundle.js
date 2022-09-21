@@ -880,6 +880,11 @@ document.addEventListener('DOMContentLoaded', function(){
     (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
     try{
+        // Плавный скролл ссылок 
+        smoothScrolling();
+    }catch{}
+
+    try{
         // Модальное окно для записи
         (0,_modules_Modals_modal__WEBPACK_IMPORTED_MODULE_6__["default"])({
             modal: '.modal',

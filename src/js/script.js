@@ -19,6 +19,11 @@ document.addEventListener('DOMContentLoaded', function(){
     hamburger();
 
     try{
+        // Плавный скролл ссылок 
+        smoothScrolling();
+    }catch{}
+
+    try{
         // Модальное окно для записи
         modal({
             modal: '.modal',

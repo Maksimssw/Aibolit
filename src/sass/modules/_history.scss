@@ -120,6 +120,9 @@
 @media screen and(max-width: 884px) {
     .history{
         padding: 60px 0px 80px;
+        &__description{
+            text-align: center;
+        }
     }
 }
 

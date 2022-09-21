@@ -76,6 +76,7 @@
 
 .modal-city.active{
     visibility: visible;
+    z-index: 3;
     .modal-city__wrapper{
         animation: modal 300ms linear;
     }
@@ -96,6 +97,7 @@
         text-align: center;
     }
 }
+
 
 @media screen and(max-width: 425px) {
     .modal-city{
